@@ -498,7 +498,15 @@ namespace LibraryProject
                 {
                     worksheet.Cells[1, n].Value = x.Substring(0,4) + " status";
                     worksheet.Cells[1, n + 1].Value = x.Substring(0,4) + " grade";
-                    n += 2;
+                    int index = reqClasses.IndexOf(x);
+                    if (index+1 == reqClasses.Count())
+                    {
+                        n++;
+                    }
+                    else
+                    {
+                        n += 2;
+                    }
                 }
                 worksheet.Cells[1, n + 1].Value = "Total Credits Status";
                 worksheet.Cells[1, n + 2].Value = "Total Credits Completed";

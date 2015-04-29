@@ -47,3 +47,13 @@ D:\Users\programmer03\WorkDocs\Gui\WorkGui\obj\Debug\WindowsFormsApplication1.cs
 D:\Users\programmer03\WorkDocs\Gui\WorkGui\obj\Debug\WindowsFormsApplication1.Form1.resources
 D:\Users\programmer03\WorkDocs\Gui\WorkGui\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 D:\Users\programmer03\WorkDocs\Gui\WorkGui\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+D:\Users\programmer03\WorkDocs\Shared With Me\fkjasldf\gui\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
+D:\Users\programmer03\WorkDocs\Shared With Me\fkjasldf\gui\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
+D:\Users\programmer03\WorkDocs\Shared With Me\fkjasldf\gui\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
+D:\Users\programmer03\WorkDocs\Shared With Me\fkjasldf\gui\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe
+D:\Users\programmer03\WorkDocs\Shared With Me\fkjasldf\gui\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.pdb
+D:\Users\programmer03\WorkDocs\Shared With Me\fkjasldf\gui\GWULawLibraryProgram\WorkGui\bin\Debug\EPPlus.xml
+D:\Users\programmer03\WorkDocs\Shared With Me\fkjasldf\gui\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+D:\Users\programmer03\WorkDocs\Shared With Me\fkjasldf\gui\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Form1.resources
+D:\Users\programmer03\WorkDocs\Shared With Me\fkjasldf\gui\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\Users\programmer03\WorkDocs\Shared With Me\fkjasldf\gui\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
