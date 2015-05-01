@@ -33,13 +33,13 @@ namespace WindowsFormsApplication1{
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (studentDataFile == "" || reqCourseFile == "")
+            if (studentDataFile == "" || reqCourseFile == "")   //check if files are entered correctly
             {
                 System.Windows.Forms.MessageBox.Show("Please select the proper files before generating a spreadsheet.");
                 return;
             }
-            if (!(studentDataFile.Contains(".txt")) || !(reqCourseFile.Contains(".txt")))
-            {
+            if (!(studentDataFile.Contains(".txt")) || !(reqCourseFile.Contains(".txt")))      //if either file is incorrect, the program will
+            {                                                                                  //give error message box but can still work afterwards
                 System.Windows.Forms.MessageBox.Show("Files are not properly formatted. Simple text files (.txt) are accepted.");
                 return;
             }
