@@ -173,14 +173,19 @@ namespace LibraryProject
                         {
                             if (Object.writing[k].Contains(temp[j].getCourseNum()))
                             {
+                                temp[j].setStatus("IN PROGRESS");                   //set course status and the student's WritSat
+                                student.setWritSat("ON TRACK");
+                                student.addWriting(temp[j]);                        //add this course to the student's writing course array
+
                                 if (Object.writing[k].Contains("or more credits")) ///////////////////////////if each name in the writing arraylist(string) contains this requirement,
                                 {
                                     int b = Object.writing[k].Length;
                                     string str = Object.writing[k];
                                     int numCreds = -5;
-                                    for (int n = 0; n < b; n++)                     //fine how many credits are needed,
+                                    for (int n = 0; n < b; n++)                     //find how many credits are needed,
                                     {
-                                        if (str[n] > '0' && str[n] <= '9') { 
+                                        if (str[n].Equals('1') || str[n].Equals('2') || str[n].Equals('3')|| str[n].Equals('3')|| str[n].Equals('4')|| str[n].Equals('5')
+                                        || str[n].Equals('6')|| str[n].Equals('7')|| str[n].Equals('8')|| str[n].Equals('9')) { 
                                             numCreds = n;
                                             break;
                                         }
@@ -192,9 +197,7 @@ namespace LibraryProject
                                             continue;
                                         }
                                 }                                                   ////////////////////////////////
-                                temp[j].setStatus("IN PROGRESS");                   //set course status and the student's WritSat
-                                student.setWritSat("ON TRACK");
-                                student.addWriting(temp[j]);                        //add this course to the student's writing course array
+ 
                             }
                         }
                     }
