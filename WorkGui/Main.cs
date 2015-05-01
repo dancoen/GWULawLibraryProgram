@@ -16,7 +16,7 @@ namespace LibraryProject
     {
         public static requiredClasses Obj;
 
-        public  static requiredClasses getObj()
+        public  static requiredClasses getObj()//makes the required classes for the GUI to be functional
         {
             return Obj;
         }
@@ -25,7 +25,7 @@ namespace LibraryProject
             Obj = Object;
         }
 
-        public static void setTotalEU(List<Student> stud)
+        public static void setTotalEU(List<Student> stud)//corrects the case where a writing class taken from a previous semester is still in progress
         {
             for (int m = 0; m < stud.Count; m++)
             {
@@ -38,7 +38,7 @@ namespace LibraryProject
                 stud[m].setEnrollUnits(sum);
             }
         }
-        public static void modifyEU(List<Student> stud)
+        public static void modifyEU(List<Student> stud)//this sets the Enrollment units to be uniform with the changes made from the function above
         {
             for (int i = 0; i < stud.Count; i++)
             {
@@ -70,25 +70,21 @@ namespace LibraryProject
         {
             Obj.splitRequiredClasses();
             string[] lines = System.IO.File.ReadAllLines(@Obj.getStudentPath()); //use studentPathway
-            ArrayList newDoc = LineSplit.splitLine(lines);
+            ArrayList newDoc = LineSplit.splitLine(lines);//splits the whole student file into one column for ease of parsing
             string[] oneColumn = (string[])newDoc.ToArray(typeof(string));
-            List<Student> studentList = ParseData.createStudent(oneColumn);
+            List<Student> studentList = ParseData.createStudent(oneColumn);//creates the list of students with their semesters and courses
             modifyEU(studentList); //fixes the in progress semester case
-            ParseData.partTime(studentList);
-            ParseData.setTotalCredComplete(studentList);
-            foreach (Course x in Obj.blank)
-            {
-                Console.WriteLine(x.getCourseName());
-            }
-            foreach (Student x in studentList)
+            ParseData.partTime(studentList);//sees if each student has been part time the whole time through
+            ParseData.setTotalCredComplete(studentList);//sets all of their credits
+            foreach (Student x in studentList)//sets all of the information into the student for generating the excel
             {
                 requiredCourseMethods.checkRequiredCourses(x, Obj);
                 requiredCourseMethods.checkSkills(x, Obj);
                 requiredCourseMethods.checkWriting(x, Obj);
             }
-            ParseData.GenExcel(studentList, Obj);
+            ParseData.GenExcel(studentList, Obj);//generates the excel
             string currentDir = Directory.GetCurrentDirectory();
-            createTextDoc.createText(currentDir, studentList, Obj);
+            createTextDoc.createText(currentDir, studentList, Obj);//creates the text doc
             Application.Exit();
         }
     }
