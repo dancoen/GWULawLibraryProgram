@@ -10,62 +10,63 @@ using WindowsFormsApplication1;
 
 namespace LibraryProject
 {
-    public class requiredClasses
+    public class requiredClasses //This class takes inputs of a text document with required classes, skills, and writing. 
     {
-        public requiredClasses(string cp, string sp) {
+        public requiredClasses(string cp, string sp) { //Was made an object in order to be compatible with the GUI; takes the text file paths of the Courselist and the Studentlist docs
             coursepath = cp;
             studentpath = sp;
             this.courseList = System.IO.File.ReadAllLines(@coursepath);
             this.lines = System.IO.File.ReadAllLines(@studentpath);
         }
         
-        public  string coursepath; 
+        public  string coursepath;
         public string studentpath; 
         public  string[] courseList;  
-        private  List<string> required = new List<string>();
-        public  List<string> writing = new List<string>();
-        public  List<string> skills = new List<string>();
-        public  List<Course> blank = new List<Course>();
-        public  Course[] actual;
-        public  string[] lines;
-        public  int num;
+        private  List<string> required = new List<string>(); //arraylist of required course names
+        public  List<string> writing = new List<string>();   //arraylist of required writing course names
+        public  List<string> skills = new List<string>();    //arraylist of required skills course names
+        public  List<Course> blank = new List<Course>();     //likely not needed
+        public  Course[] actual;                             //arraylist of required Course objects that have been set with default values,--
+                                                             //---so same order every time, only need to change appropriate data within for each student. This will happen later on.
+        public  string[] lines;                              //arraylist for student list to parse through
+        public  int num;                                     //number of required courses
 
-        public  string getCoursepath()
+        public  string getCoursepath()          //getter for course path
         {
             return coursepath;
         }
 
-        public  void setCoursePath(string path)
+        public  void setCoursePath(string path) //setter for course path
         {
             coursepath = path;
         }
-        public  string getStudentPath()
+        public  string getStudentPath()         //getter for student path
         {
             return studentpath;
         }
-        public  void setStudentPath(string path)
+        public  void setStudentPath(string path)//setter for student path
         {
             studentpath = path;
         }
 
-        public  void splitRequiredClasses()
+        public  void splitRequiredClasses()         //splits the text file into required, writing, and skills
         {
-            int x = splitCourseList(1, required);
-            int y = splitCourseList(x, writing);
-            int z = splitCourseList(y, skills);
+            int x = splitCourseList(1, required);   //parses course list into the proper array, returns the index where required classes stop
+            int y = splitCourseList(x, writing);    //parses course list into the proper array, returns idx where writing stops
+            int z = splitCourseList(y, skills);     //parses course list into the proper array, returns idx where skills stop
             num = required.Count;
-            setActual();
+            setActual();                            //sets default required course array
         }
 
-        public  List<Course> getBlank() {
+        public  List<Course> getBlank() {           //not sure if necessary
             return blank;
         }
 
-        public  List<string> getRequired() {
+        public  List<string> getRequired() {        //returns arraylist of required classes (String)
             return required;
         }
 
-        public  Course setAsDefault(string name)
+        /*public  Course setAsDefault(string name) //likely not actually needed
         {
             Course blank = new Course();
             blank.setCourseName(name);
@@ -73,20 +74,20 @@ namespace LibraryProject
             blank.setStatus("OFF TRACK");
             blank.setGrade("not compl. or in prog.");
             return blank;
-        }
-        public  void setActual()
+        }*/
+        public  void setActual()                        
         {
-            Course[] A = new Course[required.Count];
+            Course[] A = new Course[required.Count];    //initialize Course array with same size as #required courses
             int i = 0;
-            foreach (string x in required)
+            foreach (string x in required) //course name
             {
-                A[i] = new Course(x.Substring(0, 4), x, "not compl. or in prog.");
-                A[i].setStatus("OFF TRACK");
+                A[i] = new Course(x.Substring(0, 4), x, "not compl. or in prog.");  //Initializes Course object with the course number, name, and default grade
+                A[i].setStatus("OFF TRACK");                                        //Sets course status as Off Track
                 i++;
             }
-            actual = A;
+            actual = A; //after loop, sets global actual with the modified local Course array
         }
-        public  int splitCourseList(int j, List<string> list)
+        public  int splitCourseList(int j, List<string> list) //goes through text file of Courses to separate the different categories - works as long as they are in the same order as original
         {
             for (int i = j; i < courseList.Count(); i++)
             {
@@ -107,28 +108,29 @@ namespace LibraryProject
         }
     }
 
-    public class requiredCourseMethods
+    public class requiredCourseMethods //new class: methods for checking satisfaction: required, writing, skills
     {
-        public static Course[] checkRequiredCourses(Student student, requiredClasses Object)
+        public static Course[] checkRequiredCourses(Student student, requiredClasses Object) //This method sets each student's required courses with the correct information
+                                                                                             //always use the same requiredClasses object when calling these methods
         {
-            Course[] actualcopy = new Course[Object.actual.Length];
+            Course[] actualcopy = new Course[Object.actual.Length]; //copy of Actual
             
-            for (int i = 0; i < actualcopy.Length; i++)
+            for (int i = 0; i < actualcopy.Length; i++)             //make sure each Course object in actual is copied into actualcopy
             {
                 actualcopy[i] = Object.actual[i];
             }
-            List<Semester> semest = student.getStudentSemesters();
+            List<Semester> semest = student.getStudentSemesters();  //temporary semester List, easier to understand
 
             for (int i = 0; i < semest.Count; i++)
             {
-                List<Course> temp = semest[i].getCourseList();
+                List<Course> temp = semest[i].getCourseList(); //temporary Course List, easier to understand
                 for (int k = 0; k < actualcopy.Length; k++)
                 {
                     for (int j = 0; j < semest[i].getCourseList().Count; j++)
                     {
-                        if (actualcopy[k].getCourseNum().Contains(temp[j].getCourseNum()))
+                        if (actualcopy[k].getCourseNum().Contains(temp[j].getCourseNum())) //if the student's course on the transcript matches one of the required courses in the list
                         {
-                            actualcopy[k] = temp[j];
+                            actualcopy[k] = temp[j]; //copy the course + info
                             if (Object.getRequired()[k].Contains(temp[j].getCourseNum()) && 
                                 (temp[j].getGrade().Equals("A") || temp[j].getGrade().Equals("A-") ||
                                  temp[j].getGrade().Equals("A+") ||temp[j].getGrade().Equals("B")  || 
@@ -139,9 +141,9 @@ namespace LibraryProject
                                  temp[j].getGrade().Equals("TR") || temp[j].Equals("H") || 
                                  temp[j].Equals("P") || temp[j].Equals("LP")))
                             {
-                                actualcopy[k].setStatus("SATISFIED");
+                                actualcopy[k].setStatus("SATISFIED");           //if these grade conditions are met, then the student has satisfied this course, set info          
                             }
-                            if ((temp[j].getGrade().Contains("Progress"))) { 
+                            if ((temp[j].getGrade().Contains("Progress"))) {    //modify Status and Track accordingly: means this course is in progress
                                 actualcopy[k].setStatus("ON TRACK");
                                 actualcopy[k].setTrack("IN PROGRESS");
                             }
@@ -151,16 +153,18 @@ namespace LibraryProject
                     }
                 }
             }
-            student.setreqcourses(actualcopy);
+            student.setreqcourses(actualcopy); //stores copy of required courses Course array in the Student object with modified Status and Track +etc
                 return actualcopy;
         }
 
-        public static void checkWriting(Student student, requiredClasses Object) 
+        public static void checkWriting(Student student, requiredClasses Object) //This method checks and sets each student's writing courses (if any) with the correct information
+                                                                                 //always use the same requiredClasses object when calling these methods
         {
             List<Semester> semest = student.getStudentSemesters();
             for (int i = 0; i < semest.Count; i++)
             {
-                if (semest[i].getInProg() && !student.getWritSat().Contains("SATISFIED"))
+                if (semest[i].getInProg() && !student.getWritSat().Contains("SATISFIED"))   //if the stud's writing req hasn't been satisfied, check for writing courses in progress
+                                                                                            //if it has, don't need to go through this process, hence the '!'
                 {
                     for (int j = 0; j < semest[i].getCourseList().Count; j++)
                     {
@@ -169,28 +173,28 @@ namespace LibraryProject
                         {
                             if (Object.writing[k].Contains(temp[j].getCourseNum()))
                             {
-                                if (Object.writing[k].Contains("or more credits")) ///////////////////////////
+                                if (Object.writing[k].Contains("or more credits")) ///////////////////////////if each name in the writing arraylist(string) contains this requirement,
                                 {
                                     int b = Object.writing[k].Length;
                                     string str = Object.writing[k];
                                     int numCreds = -5;
-                                    for (int n = 0; n < b; n++)
+                                    for (int n = 0; n < b; n++)                     //fine how many credits are needed,
                                     {
                                         if (str[n] > '0' && str[n] <= '9') { 
                                             numCreds = n;
                                             break;
                                         }
                                     }
-                                        if (temp[j].getCreds() < numCreds) { 
+                                        if (temp[j].getCreds() < numCreds) {        //determine if student is taking enough credits in that course + set appropriately
                                             student.setWritSat("OFF TRACK");
                                             student.addWriting(temp[j]);
                                             temp[j].setStatus("IN PROGRESS");
                                             continue;
                                         }
                                 }                                                   ////////////////////////////////
-                                temp[j].setStatus("IN PROGRESS");
+                                temp[j].setStatus("IN PROGRESS");                   //set course status and the student's WritSat
                                 student.setWritSat("ON TRACK");
-                                student.addWriting(temp[j]);
+                                student.addWriting(temp[j]);                        //add this course to the student's writing course array
                             }
                         }
                     }
@@ -198,22 +202,24 @@ namespace LibraryProject
             }
         }
 
-        public static void checkSkills(Student student, requiredClasses Object) 
+        public static void checkSkills(Student student, requiredClasses Object) //This method checks and sets each student's Skill courses (if any) with the correct information
+                                                                                //always use the same requiredClasses object when calling these methods
         {
             List<Semester> semest = student.getStudentSemesters();
             for (int i = 0; i < semest.Count; i++)
             {
-                if (semest[i].getInProg() && !student.getSkillSat().Contains("SATISFIED")) { 
+                if (semest[i].getInProg() && !student.getSkillSat().Contains("SATISFIED")) {  //if the stud's writing req hasn't been satisfied, check for Skill courses in progress
+                                                                                              //if it has, don't need to go through this process, hence the '!'
                     for (int j = 0; j < semest[i].getCourseList().Count; j++)
                     {
                         List<Course> temp = semest[i].getCourseList();
                         for (int k = 0; k < Object.skills.Count; k++)
                         {
-                            if (Object.skills[k].Contains(temp[j].getCourseNum()))
+                            if (Object.skills[k].Contains(temp[j].getCourseNum()))  //if each name in the writing arraylist(string) contains this requirement,
                             {
-                                 temp[j].setStatus("ON TRACK");
+                                 temp[j].setStatus("ON TRACK");                     //set necessary info
                                  student.setSkillSat("ON TRACK");
-                                 student.addSkills(temp[j]);
+                                 student.addSkills(temp[j]);                        //add course to student's Skill course array
                             }
                         }
                     }
