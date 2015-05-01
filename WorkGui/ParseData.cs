@@ -23,6 +23,7 @@ namespace LibraryProject
         {
             for (int i = 0; i < stud.Count; i++)
             {
+                //string temp = "Football";                                               //unnecessary
                 List<Semester> semList = stud[i].getStudentSemesters();
                 int count = 0;//the count for total credits completed
                 int count1 = 0;//the count for credits in progess
@@ -36,31 +37,31 @@ namespace LibraryProject
                         if (sub.Equals("A+") || sub.Equals("A") || sub.Equals("A-") || 
                             sub.Equals("B") || sub.Equals("B+") || sub.Equals("B-") || 
                             sub.Equals("C") || sub.Equals("C+") || sub.Equals("C-") || 
-                            sub.Equals("D") || sub.Equals("D+") || sub.Equals("D-"))//gets all the graded credits and adds them in
+                            sub.Equals("D") || sub.Equals("D+") || sub.Equals("D-") || 
+                            sub.Equals("H") || sub.Equals("P") || sub.Equals("LP"))
                         {
                             count2 += (int)courseList[k].getCreds();
                         }
                     }
                         if (!semList[j].getInProg())
                         {
-                            count += semList[j].getCreditHours();//indicates in progress credits
+                            count += semList[j].getCreditHours();
                         }
                         else
                         {
-                            count1 += semList[j].getCreditHours();//indicates any other type of credit that doesnt have a grade and isnt in progress
+                            count1 += semList[j].getCreditHours();
                         }
-                    if (semList[j].getEUnits() == 0)//indicates an in progress writing class
+                    if (semList[j].getEUnits() == 0)
                     {
                         count -= semList[j].getCreditHours();
                     }
                 }
-                stud[i].setGradedCreds(count2);//sets all the respective credits to the student
+                stud[i].setGradedCreds(count2);
                 stud[i].setCredsInProgress(count1);
                 stud[i].setTotCred(count);
             }
         }
-        public void setGradedCreds(Student stud)//don't know if this is being used but it seems to just set the graded credits, seems to repeat the code above
-                                                //but just for graded credits
+        public void setGradedCreds(Student stud)
         {
             List<Semester> semList = stud.getStudentSemesters();
             for (int i = 0; i < semList.Count; i++)
@@ -84,15 +85,15 @@ namespace LibraryProject
 
             for (int i = 0; i < text.Length; i++)
             {
-                if (text[i].Contains("Record of") && newStudent)//indicates a new student has been found
+                if (text[i].Contains("Record of") && newStudent)
                 {
                     newStudent = false;
                     string Gwid = text[i - 2].Substring(13, 9);
-                    string name = text[i].Substring(11, text[i].Length - 11);//obtains the name of the student
+                    string name = text[i].Substring(11, text[i].Length - 11);
                     name = name.Trim();
                     Student stud = new Student(name);
                     stud.setGWid(Gwid);
-                    if (text[i + 1].Contains("Law"))//indicates that the student is a law student
+                    if (text[i + 1].Contains("Law"))
                     {
                         stud.setLaw(true);
                         createSemester(text, stud, i);
@@ -106,7 +107,7 @@ namespace LibraryProject
                     {
                         stud.setUnderGrad(true);
                     }
-                    for (int x = i; x < i + 17; x++)//sets the skills and writing requirements if they are found in the legend
+                    for (int x = i; x < i + 17; x++)
                     {
                         if (text[x].Contains("SKILLS REQUIREMENT MET"))
                         {
@@ -118,27 +119,27 @@ namespace LibraryProject
                         }
                     }
                 }
-                if (text[i].Contains("END OF DOCUMENT"))//indicates the end of the student file
+                if (text[i].Contains("END OF DOCUMENT"))
                 {
                     newStudent = true;
                 }
             }
                 return listStudent;
         }
-        public static void createSemester(string[] text, Student stud, int i)//method that sets the list of semesters into the students
+        public static void createSemester(string[] text, Student stud, int i)
         {
             List<Semester> semesterList = new List<Semester>();
             int endIndex = text.Length;
             for (int m = i; m < text.Length; m++)
             {
-                if (text[m].Contains("TOTAL INSTITUTION"))//finds the graded credits listed for the semester
+                if (text[m].Contains("TOTAL INSTITUTION"))
                 {
                     string gradedCreds = text[m].Substring(29, 6);
                     gradedCreds = gradedCreds.Trim();
                     double gradeCreds = Double.Parse(gradedCreds);
                     stud.setGradedCreds(gradeCreds);
                 }
-                if (text[m].Contains("END OF DOCUMENT"))//indicates the end of the student file and gets their gpa
+                if (text[m].Contains("END OF DOCUMENT"))
                 {
                     if (text[m - 1].Contains("OVERALL"))
                     {
@@ -164,14 +165,13 @@ namespace LibraryProject
                 {                                                           //to worry about getting his classes
                     Semester reusable = new Semester();
                     string semesterName = text[j].Substring(0, 9);
-                    reusable.setSemesterName(semesterName);//gets and sets the semester name
+                    reusable.setSemesterName(semesterName);
                     if (stud.getLaw())
                     {
                         for (int k = j; k < endIndex; k++)
                         {
 
-                            if (text[k].Contains("LAW") && !text[k].Contains("EFV"))//shows that a law course was found and then gets all the info for it
-                                                                                    //and stores it into the student's respective semester
+                            if (text[k].Contains("LAW") && !text[k].Contains("EFV"))
                             {
                                 Course reuse = new Course();
                                 reuse.setCourseName(text[k].Substring(4, 25));
@@ -191,7 +191,7 @@ namespace LibraryProject
                                 reusable.addCourse(reuse);
                             }
                             if (text[k].Contains("Total Transfer")) break;
-                            if (text[k].Contains("Credits In Progress"))//sets the in progress credits if found in the semester
+                            if (text[k].Contains("Credits In Progress"))
                             {
                                 int index = text[k].IndexOf(".");
                                 string creditHours = text[k].Substring(37, index - 37);
@@ -202,7 +202,7 @@ namespace LibraryProject
                                 stud.addOneSemester(reusable);
                                 break;
                             }
-                            if (text[k].Contains("Ehrs"))//indicates the total credits for the semester
+                            if (text[k].Contains("Ehrs"))
                             {
                                 int index = text[k].IndexOf(".");
                                 int length = index - 8;
@@ -216,7 +216,7 @@ namespace LibraryProject
                         }
                     }
                 }
-                if (text[j].Contains("Spring") && !text[j].Contains("Admit"))//follows the same rules as above except for the spring semester
+                if (text[j].Contains("Spring") && !text[j].Contains("Admit"))
                 {
                     Semester reusable = new Semester();
                     string semesterName = text[j].Substring(0, 11);
@@ -270,7 +270,7 @@ namespace LibraryProject
                         }
                     }
                 }
-                if (text[j].Contains("Summer") && !text[j].Contains("Admit"))//follows the same rules as the previous semesters
+                if (text[j].Contains("Summer") && !text[j].Contains("Admit"))
                 {
                     Semester reusable = new Semester();
                     string semesterName = text[j].Substring(0, 11);
@@ -325,9 +325,9 @@ namespace LibraryProject
                     }
                 }
                     /***************************non-gw history - need these courses for requirement checking***************************************/
-                    if (text[j].Contains("NON-GW HISTORY:"))//shows that this student has had a transfer semester
+                    if (text[j].Contains("NON-GW HISTORY:"))
                     {
-                        Semester reusable = new Semester();//creates and stores the semester
+                        Semester reusable = new Semester();
                         String semesterName = "NON-GW";
                         reusable.setSemesterName(semesterName);
                         if (text[j + 1].Contains("20"))
@@ -342,7 +342,7 @@ namespace LibraryProject
                             semesterName = semesterName.Trim();
                             reusable.setSemesterName("NON-GW " + semesterName);
                         }
-                        if (stud.getLaw())//only runs if this student is a law student
+                        if (stud.getLaw())
                         {
                             for (int k = j; k < endIndex; k++)
                             {
@@ -454,8 +454,7 @@ namespace LibraryProject
                 }
             }
         }
-        public static void partTime(List<Student> studentlist)//the method that determines if the student was part time for the whole time at law school
-                                                             //this is the condition that allows the student to pass with 5.9 EUnits
+        public static void partTime(List<Student> studentlist)
         {
             bool allPart = false;
             foreach (Student stud in studentlist)
