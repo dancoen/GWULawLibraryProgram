@@ -663,7 +663,19 @@ namespace LibraryProject
                         student.setTrack();
                     }
                     worksheet.Cells[count, n + 15].Value = enrolltrack;
-                    worksheet.Cells[count, n + 16].Value = student.getEnrollUnits();
+                    string temp = "" + student.getEnrollUnits();
+                    if (temp.Length == 1) {
+                        temp += ".000";
+                    }
+                    else if (temp.Length == 3)
+                    {
+                        temp += "00";
+                    }
+                    else if (temp.Length == 4)
+                    {
+                        temp += "0";
+                    }
+                    worksheet.Cells[count, n + 16].Value = temp;
                     int semesterNum = 1;
                     
                     foreach (Semester semester in student.getStudentSemesters())
@@ -708,7 +720,20 @@ namespace LibraryProject
                             if (semester.getEUnits() > 0)
                             {
                                 worksheet.Cells[count, g].Value = semester.getSemesterName();
-                                worksheet.Cells[count, g + 1].Value = semester.getEUnits();
+                                temp = "" + semester.getEUnits();
+                                if (temp.Length == 1)
+                                {
+                                    temp += ".000";
+                                }
+                                else if (temp.Length == 3)
+                                {
+                                    temp += "00";
+                                }
+                                else if (temp.Length == 4)
+                                {
+                                    temp += "0";
+                                }
+                                worksheet.Cells[count, g + 1].Value = temp;
                                 worksheet.Cells[count, g + 2].Value = semester.getCreditHours();
                                 semesterNum++;
                             }

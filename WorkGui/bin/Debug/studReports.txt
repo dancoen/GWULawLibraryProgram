@@ -507,7 +507,7 @@ REQUIRED COURSES
 TOTAL CREDITS (84)	ON TRACK <= 75 compl. + 12 prog. = 87 total
 
 
-GRADED CREDITS (67)	SATISFIED <= 69 graded + 12 prog. = 81 total
+GRADED CREDITS (67)	ON TRACK <= 64 graded + 12 prog. = 76 total
 
 
 
