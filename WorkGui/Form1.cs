@@ -43,7 +43,7 @@ namespace WindowsFormsApplication1{
                 System.Windows.Forms.MessageBox.Show("Files are not properly formatted. Simple text files (.txt) are accepted.");
                 return;
             }
-            requiredClasses obj = new requiredClasses(this.textBox2.Text, this.textBox1.Text);
+            RequiredClasses obj = new RequiredClasses(this.textBox2.Text, this.textBox1.Text);
             MainClass.Start(obj);
         }
 

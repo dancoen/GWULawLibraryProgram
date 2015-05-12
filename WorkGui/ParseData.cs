@@ -477,7 +477,7 @@ namespace LibraryProject
                 stud.setPartTime(allPart);
             }
         }
-        public static void GenExcel(List<Student> studs, requiredClasses Object)
+        public static void GenExcel(List<Student> studs, RequiredClasses Object)
         {
             using (var package = new ExcelPackage(new System.IO.FileInfo("LawPrereqs.xlsx")))
             {

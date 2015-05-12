@@ -14,9 +14,9 @@ namespace LibraryProject {
 
     public class createTextDoc
     {
-        public static void createText(string path, List<Student> studentList, requiredClasses Object)
+        public static void createText(string path, List<Student> studentList, RequiredClasses Object)
         {
-            string doc = path + "/" + "studReports.txt";
+            string doc = path + "/" + "studReports.doc";
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(doc, false))
                 {
                     foreach (Student x in studentList)
@@ -222,6 +222,7 @@ namespace LibraryProject {
                         file.WriteLine("");
                         file.WriteLine("");
                         file.WriteLine();
+                        file.WriteLine('\f');
                     }
                 }
                 Process.Start(doc);
