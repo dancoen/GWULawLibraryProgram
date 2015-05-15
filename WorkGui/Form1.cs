@@ -24,11 +24,16 @@ namespace WindowsFormsApplication1{
         }
         public String studentDataFile = "";
         public String reqCourseFile = "";
+        public String folder = "";
         public String getStudFile (){
             return studentDataFile;
         }
         public string getCourseFile() {
             return reqCourseFile;
+        }
+
+        public string getFolder() {
+            return folder;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,7 +49,7 @@ namespace WindowsFormsApplication1{
                 return;
             }
             RequiredClasses obj = new RequiredClasses(this.textBox2.Text, this.textBox1.Text);
-            MainClass.Start(obj);
+            MainClass.Start(obj, folder);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -97,7 +102,7 @@ namespace WindowsFormsApplication1{
             Console.WriteLine(size); // <-- Shows file size in debugging mode.
             Console.WriteLine(result); // <-- For debugging use.
         }
-
+        
         private void label3_Click(object sender, EventArgs e)
         {
 
@@ -109,6 +114,39 @@ namespace WindowsFormsApplication1{
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int size = -1;
+            DialogResult result = folderBrowserDialog1.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                folder = folderBrowserDialog1.SelectedPath;
+                this.textBox3.Text = folder;
+            }
+            Console.WriteLine(size); // <-- Shows file size in debugging mode.
+            Console.WriteLine(result); // <-- For debugging use.
+        }
+
+        private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)
+        {
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void folderBrowserDialog1_HelpRequest_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
         }

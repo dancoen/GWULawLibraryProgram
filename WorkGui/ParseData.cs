@@ -477,7 +477,7 @@ namespace LibraryProject
                 stud.setPartTime(allPart);
             }
         }
-        public static void GenExcel(List<Student> studs, RequiredClasses Object)
+        public static void GenExcel(List<Student> studs, RequiredClasses Object, String folder)
         {
             using (var package = new ExcelPackage(new System.IO.FileInfo("LawPrereqs.xlsx")))
             {
@@ -758,7 +758,15 @@ namespace LibraryProject
                 package.Save();
                 string path = Directory.GetCurrentDirectory();
                 string newPath = path + "/" + "LawPrereqs.xlsx";
-                Process.Start(@newPath);
+                folder = folder + "/LawPrereqs.xlsx";
+                if (File.Exists(folder)) {
+                    File.Delete(folder);
+                }
+                if (File.Exists(newPath))
+                {
+                    File.Move(newPath, folder);
+                    Process.Start(folder);
+                }
             }
         }       
     }
