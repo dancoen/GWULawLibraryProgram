@@ -14,13 +14,15 @@ namespace LibraryProject
 {
     class MainClass
     {
-        public static requiredClasses Obj;
+        public static RequiredClasses Obj;
 
-        public  static requiredClasses getObj()
+        public static string folder;
+
+        public  static RequiredClasses getObj()
         {
             return Obj;
         }
-        public static void setObj(requiredClasses Object)
+        public static void setObj(RequiredClasses Object)
         {
             Obj = Object;
         }
@@ -66,7 +68,7 @@ namespace LibraryProject
             }
             setTotalEU(stud);
         }
-        public static void Start(requiredClasses Obj)
+        public static void Start(RequiredClasses Obj, String folder)
         {
             Obj.splitRequiredClasses();
             string[] lines = System.IO.File.ReadAllLines(@Obj.getStudentPath()); //use studentPathway
@@ -86,9 +88,9 @@ namespace LibraryProject
                 requiredCourseMethods.checkSkills(x, Obj);
                 requiredCourseMethods.checkWriting(x, Obj);
             }
-            ParseData.GenExcel(studentList, Obj);
-            string currentDir = Directory.GetCurrentDirectory();
-            createTextDoc.createText(currentDir, studentList, Obj);
+            ParseData.GenExcel(studentList, Obj, folder);
+            //string currentDir = Form1.getFolder();
+            createTextDoc.createText(folder, studentList, Obj);
             Application.Exit();
         }
     }
