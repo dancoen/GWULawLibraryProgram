@@ -9,10 +9,10 @@ using classesForLibraryExcel;
 using WindowsFormsApplication1;
 
 namespace LibraryProject
-{ //football
-    public class requiredClasses //This class takes inputs of a text document with required classes, skills, and writing. 
+{ 
+    public class RequiredClasses //This class takes inputs of a text document with required classes, skills, and writing. 
     {
-        public requiredClasses(string cp, string sp) { //Was made an object in order to be compatible with the GUI; takes the text file paths of the Courselist and the Studentlist docs
+        public RequiredClasses(string cp, string sp) { //Was made an object in order to be compatible with the GUI; takes the text file paths of the Courselist and the Studentlist docs
             coursepath = cp;
             studentpath = sp;
             this.courseList = System.IO.File.ReadAllLines(@coursepath);
@@ -110,7 +110,7 @@ namespace LibraryProject
 
     public class requiredCourseMethods //new class: methods for checking satisfaction: required, writing, skills
     {
-        public static Course[] checkRequiredCourses(Student student, requiredClasses Object) //This method sets each student's required courses with the correct information
+        public static Course[] checkRequiredCourses(Student student, RequiredClasses Object) //This method sets each student's required courses with the correct information
                                                                                              //always use the same requiredClasses object when calling these methods
         {
             Course[] actualcopy = new Course[Object.actual.Length]; //copy of Actual
@@ -157,7 +157,7 @@ namespace LibraryProject
                 return actualcopy;
         }
 
-        public static void checkWriting(Student student, requiredClasses Object) //This method checks and sets each student's writing courses (if any) with the correct information
+        public static void checkWriting(Student student, RequiredClasses Object) //This method checks and sets each student's writing courses (if any) with the correct information
                                                                                  //always use the same requiredClasses object when calling these methods
         {
             List<Semester> semest = student.getStudentSemesters();
@@ -205,7 +205,7 @@ namespace LibraryProject
             }
         }
 
-        public static void checkSkills(Student student, requiredClasses Object) //This method checks and sets each student's Skill courses (if any) with the correct information
+        public static void checkSkills(Student student, RequiredClasses Object) //This method checks and sets each student's Skill courses (if any) with the correct information
                                                                                 //always use the same requiredClasses object when calling these methods
         {
             List<Semester> semest = student.getStudentSemesters();
