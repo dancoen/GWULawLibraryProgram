@@ -36,7 +36,7 @@ namespace classesForLibraryExcel
                 public void setPartTime(bool x) { allPartTime = x; }
                 public bool getPartTime() { return allPartTime; }
 
-        private bool nonLawCourses;
+        private bool nonLawCourses = false;
                 public bool getnonLawBool() { return nonLawCourses; }
                 public void setnonLawBool(bool x) { nonLawCourses = x; }
 

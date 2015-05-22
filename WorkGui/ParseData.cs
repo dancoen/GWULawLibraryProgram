@@ -175,9 +175,6 @@ namespace LibraryProject
                                                                                     //and stores it into the student's respective semester
                             {
                                 Course reuse = new Course();
-                                if (!text[k].Substring(0, 2).Equals("LAW")) {
-                                    stud.setnonLawBool(true);
-                                }
                                 reuse.setCourseName(text[k].Substring(4, 25));
                                 string Coursecred = text[k].Substring(38, 4);
                                 Coursecred = Coursecred.Trim();
@@ -680,9 +677,13 @@ namespace LibraryProject
                     }
                     worksheet.Cells[count, n + 16].Value = temp;
                     int semesterNum = 1;
-                    
+                    double lawCreds = 0.0;
                     foreach (Semester semester in student.getStudentSemesters())
                     {
+                        foreach (Course course in semester.getCourseList())
+                        {
+                            lawCreds += course.getCreds();
+                        }
                         for (int h = 0; h < student.getreqcourses().Length; h++ )
                         {
                             Course course = student.getreqcourses()[h];
@@ -741,8 +742,9 @@ namespace LibraryProject
                                 semesterNum++;
                             }
                         }
-                        if (student.getnonLawBool() == true)
+                        if (lawCreds < student.getTotCred())
                         {
+                            student.setnonLawBool(true);
                             worksheet.Cells[count, n + 48].Value = "*** Note: Non-Law School courses on transcript ***";
                         }
                     }
