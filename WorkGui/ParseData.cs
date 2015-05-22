@@ -175,6 +175,9 @@ namespace LibraryProject
                                                                                     //and stores it into the student's respective semester
                             {
                                 Course reuse = new Course();
+                                if (!text[k].Substring(0, 2).Equals("LAW")) {
+                                    stud.setnonLawBool(true);
+                                }
                                 reuse.setCourseName(text[k].Substring(4, 25));
                                 string Coursecred = text[k].Substring(38, 4);
                                 Coursecred = Coursecred.Trim();
