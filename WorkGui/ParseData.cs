@@ -749,11 +749,11 @@ namespace LibraryProject
                                 semesterNum++;
                             }
                         }
-                        if (lawCreds > student.getTotCred())
-                        {
-                            student.setnonLawBool(true);
-                            worksheet.Cells[count, n + 48].Value = "*** Note: Non-Law School courses on transcript ***";
-                        }
+                    }
+                    if (lawCreds < student.getTotCred())
+                    {
+                        student.setnonLawBool(true);
+                        worksheet.Cells[count, n + 48].Value = "*** Note: Non-Law School courses on transcript ***";
                     }
                     if (student.getPartTime() == true)
                     {
