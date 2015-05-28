@@ -57,7 +57,7 @@ namespace LibraryProject
                 }
                 stud[i].setGradedCreds(count2);//sets all the respective credits to the student
                 stud[i].setCredsInProgress(count1);
-                stud[i].setTotCred(count);
+                //stud[i].setTotCred(count);
             }
         }
         public void setGradedCreds(Student stud)//don't know if this is being used but it seems to just set the graded credits, seems to repeat the code above
@@ -118,6 +118,10 @@ namespace LibraryProject
                             stud.setWritSat("SATISFIED");
                         }
                     }
+                }
+                if (text[i].Contains("OVERALL"))
+                {
+                    listStudent[listStudent.Count() -1].setTotCred(Double.Parse(text[i].Substring(19, 5)));
                 }
                 if (text[i].Contains("END OF DOCUMENT"))//indicates the end of the student file
                 {
@@ -745,7 +749,7 @@ namespace LibraryProject
                                 semesterNum++;
                             }
                         }
-                        if (lawCreds < student.getTotCred())
+                        if (lawCreds > student.getTotCred())
                         {
                             student.setnonLawBool(true);
                             worksheet.Cells[count, n + 48].Value = "*** Note: Non-Law School courses on transcript ***";
