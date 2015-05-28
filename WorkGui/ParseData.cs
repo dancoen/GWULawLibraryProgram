@@ -24,7 +24,7 @@ namespace LibraryProject
             for (int i = 0; i < stud.Count; i++)
             {
                 List<Semester> semList = stud[i].getStudentSemesters();
-                int count = 0;//the count for total credits completed
+                double count = 0.0;//the count for total credits completed
                 int count1 = 0;//the count for credits in progess
                 int count2 = 0;//the count for graded credits
                 for (int j = 0; j < semList.Count; j++)
@@ -677,9 +677,16 @@ namespace LibraryProject
                     }
                     worksheet.Cells[count, n + 16].Value = temp;
                     int semesterNum = 1;
-                    
+                    double lawCreds = 0.0;
                     foreach (Semester semester in student.getStudentSemesters())
                     {
+                        if (!semester.getInProg())
+                        {
+                            foreach (Course course in semester.getCourseList())
+                            {
+                                lawCreds += course.getCreds();
+                            }
+                        }
                         for (int h = 0; h < student.getreqcourses().Length; h++ )
                         {
                             Course course = student.getreqcourses()[h];
@@ -738,8 +745,9 @@ namespace LibraryProject
                                 semesterNum++;
                             }
                         }
-                        if (student.getnonLawBool() == true)
+                        if (lawCreds < student.getTotCred())
                         {
+                            student.setnonLawBool(true);
                             worksheet.Cells[count, n + 48].Value = "*** Note: Non-Law School courses on transcript ***";
                         }
                     }
