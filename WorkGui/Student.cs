@@ -8,6 +8,7 @@ using System.Collections.Generic;
 
 namespace classesForLibraryExcel
 {
+
     public class Student {
         //this Student class holds a GWid as a string, 
         //the name of the student, and an arraylist of 
@@ -15,6 +16,25 @@ namespace classesForLibraryExcel
         //on how we implement the program, we can either add
         //a whole arraylist of semester at a time, or add them one
         //at a time
+
+        /*-----------------------------CONSTRUCTORS BELOW ------------------------------*/
+
+        public Student(string GWid1, string studentName1, ArrayList studentSemester1)
+        {
+            GWid = GWid1;
+            studentName = studentName1;
+            studentSemester = (Semester[])studentSemester1.ToArray(typeof(Semester));
+        }
+        public Student(string studentName1)
+        {
+            studentName = studentName1;
+        }
+        public Student() { }
+
+
+        /*------------------------------------------------------------------------------*/
+
+
         private bool transferStud = false;
         public bool getTransferStud() { return transferStud; }
         public void setTransferStud(bool transferStud) { this.transferStud = transferStud; }
@@ -105,20 +125,6 @@ namespace classesForLibraryExcel
                     studentSemesters.Add(studentSemester1);
                 }
                 public void setSingleSemester(Semester singleSemester) { studentSemesters.Add(singleSemester); }
-
-
-        /*-----------------------------CONSTRUCTORS BELOW ------------------------------*/
-        
-        public Student(string GWid1, string studentName1, ArrayList studentSemester1) {
-            GWid = GWid1;
-            studentName = studentName1;
-            studentSemester = (Semester[])studentSemester1.ToArray(typeof(Semester));
-        }
-        public Student(string studentName1)
-        {
-            studentName = studentName1;
-        }
-        public Student() { }
 
         /*-----------------------METHODS--------------------------*/
 
