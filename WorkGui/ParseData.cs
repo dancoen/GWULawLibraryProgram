@@ -24,7 +24,7 @@ namespace LibraryProject
             for (int i = 0; i < stud.Count; i++)
             {
                 List<Semester> semList = stud[i].getStudentSemesters();
-                int count = 0;//the count for total credits completed
+                double count = 0.0;//the count for total credits completed
                 int count1 = 0;//the count for credits in progess
                 int count2 = 0;//the count for graded credits
                 for (int j = 0; j < semList.Count; j++)
@@ -742,7 +742,7 @@ namespace LibraryProject
                                 semesterNum++;
                             }
                         }
-                        if (lawCreds < student.getTotCred())
+                        if (lawCreds != student.getTotCred())
                         {
                             student.setnonLawBool(true);
                             worksheet.Cells[count, n + 48].Value = "*** Note: Non-Law School courses on transcript ***";
