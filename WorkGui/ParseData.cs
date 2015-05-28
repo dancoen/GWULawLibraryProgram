@@ -680,9 +680,12 @@ namespace LibraryProject
                     double lawCreds = 0.0;
                     foreach (Semester semester in student.getStudentSemesters())
                     {
-                        foreach (Course course in semester.getCourseList())
+                        if (!semester.getInProg())
                         {
-                            lawCreds += course.getCreds();
+                            foreach (Course course in semester.getCourseList())
+                            {
+                                lawCreds += course.getCreds();
+                            }
                         }
                         for (int h = 0; h < student.getreqcourses().Length; h++ )
                         {
@@ -742,7 +745,7 @@ namespace LibraryProject
                                 semesterNum++;
                             }
                         }
-                        if (lawCreds != student.getTotCred())
+                        if (lawCreds < student.getTotCred())
                         {
                             student.setnonLawBool(true);
                             worksheet.Cells[count, n + 48].Value = "*** Note: Non-Law School courses on transcript ***";
