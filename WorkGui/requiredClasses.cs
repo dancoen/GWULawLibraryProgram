@@ -66,15 +66,6 @@ namespace LibraryProject
             return required;
         }
 
-        /*public  Course setAsDefault(string name) //likely not actually needed
-        {
-            Course blank = new Course();
-            blank.setCourseName(name);
-            blank.setCourseNum(name.Substring(0, 4));
-            blank.setStatus("OFF TRACK");
-            blank.setGrade("not compl. or in prog.");
-            return blank;
-        }*/
         public  void setActual()                        
         {
             Course[] A = new Course[required.Count];    //initialize Course array with same size as #required courses
