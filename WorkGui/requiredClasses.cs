@@ -66,20 +66,11 @@ namespace LibraryProject
             return required;
         }
 
-        /*public  Course setAsDefault(string name) //likely not actually needed
-        {
-            Course blank = new Course();
-            blank.setCourseName(name);
-            blank.setCourseNum(name.Substring(0, 4));
-            blank.setStatus("OFF TRACK");
-            blank.setGrade("not compl. or in prog.");
-            return blank;
-        }*/
         public  void setActual()                        
         {
             Course[] A = new Course[required.Count];    //initialize Course array with same size as #required courses
             int i = 0;
-            foreach (string x in required) //course name
+            foreach (string x in required)              //course name
             {
                 A[i] = new Course(x.Substring(0, 4), x, "not compl. or in prog.");  //Initializes Course object with the course number, name, and default grade
                 A[i].setStatus("OFF TRACK");                                        //Sets course status as Off Track

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 
 namespace classesForLibraryExcel
 {
+
     public class Student {
         //this Student class holds a GWid as a string, 
         //the name of the student, and an arraylist of 
@@ -15,6 +16,25 @@ namespace classesForLibraryExcel
         //on how we implement the program, we can either add
         //a whole arraylist of semester at a time, or add them one
         //at a time
+
+        /*-----------------------------CONSTRUCTORS BELOW ------------------------------*/
+
+        public Student(string GWid1, string studentName1, ArrayList studentSemester1)
+        {
+            GWid = GWid1;
+            studentName = studentName1;
+            studentSemester = (Semester[])studentSemester1.ToArray(typeof(Semester));
+        }
+        public Student(string studentName1)
+        {
+            studentName = studentName1;
+        }
+        public Student() { }
+
+
+        /*------------------------------------------------------------------------------*/
+
+
         private bool transferStud = false;
         public bool getTransferStud() { return transferStud; }
         public void setTransferStud(bool transferStud) { this.transferStud = transferStud; }
@@ -36,7 +56,7 @@ namespace classesForLibraryExcel
                 public void setPartTime(bool x) { allPartTime = x; }
                 public bool getPartTime() { return allPartTime; }
 
-        private bool nonLawCourses;
+        private bool nonLawCourses = false;
                 public bool getnonLawBool() { return nonLawCourses; }
                 public void setnonLawBool(bool x) { nonLawCourses = x; }
 
@@ -51,9 +71,9 @@ namespace classesForLibraryExcel
                 public int getCredsInProgress() { return credsInProgress; }
                 public void setCredsInProgress(int credsInProgress1) { credsInProgress = credsInProgress1; }
                 public void addCredsInProgress(int addCred) { credsInProgress += addCred; }
-        private int totCred = 0; //total credits
-                public int getTotCred() { return totCred; }
-                public void setTotCred(int totCred1) { totCred = totCred1; }
+        private double totCred = 0.0; //total credits
+                public double getTotCred() { return totCred; }
+                public void setTotCred(double totCred1) { totCred = totCred1; }
         private double enrollUnits = 0.0; //enrollment units
                 public void setEnrollUnits(double units) { enrollUnits = units; }
                 public double getEnrollUnits() { return enrollUnits; }
@@ -105,20 +125,6 @@ namespace classesForLibraryExcel
                     studentSemesters.Add(studentSemester1);
                 }
                 public void setSingleSemester(Semester singleSemester) { studentSemesters.Add(singleSemester); }
-
-
-        /*-----------------------------CONSTRUCTORS BELOW ------------------------------*/
-        
-        public Student(string GWid1, string studentName1, ArrayList studentSemester1) {
-            GWid = GWid1;
-            studentName = studentName1;
-            studentSemester = (Semester[])studentSemester1.ToArray(typeof(Semester));
-        }
-        public Student(string studentName1)
-        {
-            studentName = studentName1;
-        }
-        public Student() { }
 
         /*-----------------------METHODS--------------------------*/
 

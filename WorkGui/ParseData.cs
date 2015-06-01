@@ -24,7 +24,7 @@ namespace LibraryProject
             for (int i = 0; i < stud.Count; i++)
             {
                 List<Semester> semList = stud[i].getStudentSemesters();
-                int count = 0;//the count for total credits completed
+                double count = 0.0;//the count for total credits completed
                 int count1 = 0;//the count for credits in progess
                 int count2 = 0;//the count for graded credits
                 for (int j = 0; j < semList.Count; j++)
@@ -57,7 +57,7 @@ namespace LibraryProject
                 }
                 stud[i].setGradedCreds(count2);//sets all the respective credits to the student
                 stud[i].setCredsInProgress(count1);
-                stud[i].setTotCred(count);
+                //stud[i].setTotCred(count);
             }
         }
         public void setGradedCreds(Student stud)//don't know if this is being used but it seems to just set the graded credits, seems to repeat the code above
@@ -119,6 +119,10 @@ namespace LibraryProject
                         }
                     }
                 }
+                if (text[i].Contains("OVERALL"))
+                {
+                    listStudent[listStudent.Count() -1].setTotCred(Double.Parse(text[i].Substring(19, 5)));
+                }
                 if (text[i].Contains("END OF DOCUMENT"))//indicates the end of the student file
                 {
                     newStudent = true;
@@ -175,9 +179,6 @@ namespace LibraryProject
                                                                                     //and stores it into the student's respective semester
                             {
                                 Course reuse = new Course();
-                                if (!text[k].Substring(0, 2).Equals("LAW")) {
-                                    stud.setnonLawBool(true);
-                                }
                                 reuse.setCourseName(text[k].Substring(4, 25));
                                 string Coursecred = text[k].Substring(38, 4);
                                 Coursecred = Coursecred.Trim();
@@ -680,9 +681,16 @@ namespace LibraryProject
                     }
                     worksheet.Cells[count, n + 16].Value = temp;
                     int semesterNum = 1;
-                    
+                    double lawCreds = 0.0;
                     foreach (Semester semester in student.getStudentSemesters())
                     {
+                        if (!semester.getInProg())
+                        {
+                            foreach (Course course in semester.getCourseList())
+                            {
+                                lawCreds += course.getCreds();
+                            }
+                        }
                         for (int h = 0; h < student.getreqcourses().Length; h++ )
                         {
                             Course course = student.getreqcourses()[h];
@@ -741,8 +749,9 @@ namespace LibraryProject
                                 semesterNum++;
                             }
                         }
-                        if (student.getnonLawBool() == true)
+                        if (lawCreds < student.getTotCred())
                         {
+                            student.setnonLawBool(true);
                             worksheet.Cells[count, n + 48].Value = "*** Note: Non-Law School courses on transcript ***";
                         }
                     }
