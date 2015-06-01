@@ -70,3 +70,8 @@ C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsForm
 C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
 C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
