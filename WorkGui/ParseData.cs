@@ -107,7 +107,7 @@ namespace LibraryProject
                     {
                         stud.setUnderGrad(true);
                     }
-                    for (int x = i; x < i + 17; x++)//sets the skills and writing requirements if they are found in the legend
+                    for (int x = i; x < i + 25; x++)//sets the skills and writing requirements if they are found in the legend
                     {
                         if (text[x].Contains("SKILLS REQUIREMENT MET"))
                         {
@@ -530,7 +530,7 @@ namespace LibraryProject
                 worksheet.Cells[1, n + 14].Value = "Current GPA";
                 worksheet.Cells[1, n + 15].Value = "Enrollment Units Status";
                 worksheet.Cells[1, n + 16].Value = "Enrollment Units";
-                worksheet.Cells[1, n + 17].Value = "Enrollment Units Notes";
+                worksheet.Cells[1, n + 17].Value = "Enrollment Units Notes"; //worksheet.Cells[1, n + 18].Value = "Non-Law courses on transcript?"
                 worksheet.Cells[1, n + 18].Value = "Sem_1";
                 worksheet.Cells[1, n + 19].Value = "Sem_1_RU";
                 worksheet.Cells[1, n + 20].Value = "Sem_1_Credits";
