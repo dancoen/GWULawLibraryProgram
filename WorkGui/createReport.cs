@@ -107,7 +107,7 @@ namespace LibraryProject {
                             gradcredtrack, x.getGradedCreds(), x.getCredsInProgress(), x.getGradedCreds() + x.getCredsInProgress());
                         file.WriteLine("");
 
-                        if (x.getSkillSat().Contains("REQUIREMENT MET")) //if skill is satisfied (legend says requirement met) print
+                        if (x.getSkillSat().Contains("SATISFIED")) //if skill is satisfied (legend says requirement met) print
                         {
                             file.WriteLine('\n' + "SKILLS REQUIREMENT" + '\t' + "SATISFIED  <= SKILLS REQUIREMENT MET legend");
                         }
@@ -131,7 +131,7 @@ namespace LibraryProject {
 
                         // writing
                         
-                        if (x.getWritSat().Contains("REQUIREMENT MET")) {       //if writing is satisfied (legend says requirement met) print
+                        if (x.getWritSat().Contains("SATISFIED")) {       //if writing is satisfied (legend says requirement met) print
                             file.WriteLine('\n' + "WRITING REQUIREMENT" + '\t' + "SATISFIED  <= WRITING REQUIREMENT MET legend");
                         }
                         else if (x.getWritSat().Contains("OFF TRACK"))          //otherwise if it says Off track, no course in prog

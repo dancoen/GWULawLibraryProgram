@@ -175,7 +175,7 @@ namespace LibraryProject
                         for (int k = j; k < endIndex; k++)
                         {
 
-                            if (text[k].Contains("LAW") && !text[k].Contains("EFV"))//shows that a law course was found and then gets all the info for it
+                            if ((text[k].Contains("LAW") || text[k].Contains("EXCH")) && !text[k].Contains("EFV"))//shows that a law course was found and then gets all the info for it
                                                                                     //and stores it into the student's respective semester
                             {
                                 Course reuse = new Course();
@@ -230,7 +230,7 @@ namespace LibraryProject
                     {
                         for (int k = j; k < endIndex; k++)
                         {
-                            if (text[k].Contains("LAW") && !text[k].Contains("EFV"))
+                            if (text[k].Contains("LAW") || text[k].Contains("EXCH") && !text[k].Contains("EFV"))
                             {
                                 Course reuse = new Course();
                                 reuse.setCourseName(text[k].Substring(4, 25));
@@ -284,7 +284,7 @@ namespace LibraryProject
                     {
                         for (int k = j; k < endIndex; k++)
                         {
-                            if (text[k].Contains("LAW") && !text[k].Contains("EFV"))
+                            if (text[k].Contains("LAW") || text[k].Contains("EXCH") && !text[k].Contains("EFV"))
                             {
                                 Course reuse = new Course();
                                 reuse.setCourseName(text[k].Substring(4, 25));
