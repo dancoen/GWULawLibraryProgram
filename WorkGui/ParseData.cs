@@ -193,6 +193,13 @@ namespace LibraryProject
                                 {
                                     reuse.setGrade(grade);
                                 }
+                                if (text[k].Contains("EXCH"))
+                                {
+                                    Coursecred = text[k].Substring(37, 5);
+                                    Coursecred = Coursecred.Trim();
+                                    courseCred = Double.Parse(Coursecred);
+                                    reuse.setCreds(courseCred);
+                                }
                                 reusable.addCourse(reuse);
                             }
                             if (text[k].Contains("Total Transfer")) break;
@@ -230,7 +237,7 @@ namespace LibraryProject
                     {
                         for (int k = j; k < endIndex; k++)
                         {
-                            if (text[k].Contains("LAW") || text[k].Contains("EXCH") && !text[k].Contains("EFV"))
+                            if ((text[k].Contains("LAW") || text[k].Contains("EXCH")) && !text[k].Contains("EFV"))
                             {
                                 Course reuse = new Course();
                                 reuse.setCourseName(text[k].Substring(4, 25));
@@ -246,6 +253,13 @@ namespace LibraryProject
                                 if (!grade.Contains("--"))
                                 {
                                     reuse.setGrade(grade);
+                                }
+                                if (text[k].Contains("EXCH"))
+                                {
+                                    Coursecred = text[k].Substring(37, 5);
+                                    Coursecred = Coursecred.Trim();
+                                    courseCred = Double.Parse(Coursecred);
+                                    reuse.setCreds(courseCred);
                                 }
                                 reusable.addCourse(reuse);
                             }
@@ -284,7 +298,7 @@ namespace LibraryProject
                     {
                         for (int k = j; k < endIndex; k++)
                         {
-                            if (text[k].Contains("LAW") || text[k].Contains("EXCH") && !text[k].Contains("EFV"))
+                            if ((text[k].Contains("LAW") || text[k].Contains("EXCH")) && !text[k].Contains("EFV"))
                             {
                                 Course reuse = new Course();
                                 reuse.setCourseName(text[k].Substring(4, 25));
@@ -300,6 +314,13 @@ namespace LibraryProject
                                 if (!grade.Contains("--"))
                                 {
                                     reuse.setGrade(grade);
+                                }
+                                if (text[k].Contains("EXCH"))
+                                {
+                                    Coursecred = text[k].Substring(37, 5);
+                                    Coursecred = Coursecred.Trim();
+                                    courseCred = Double.Parse(Coursecred);
+                                    reuse.setCreds(courseCred);
                                 }
                                 reusable.addCourse(reuse);
                             }
