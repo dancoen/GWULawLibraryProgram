@@ -88,12 +88,12 @@ namespace LibraryProject {
                             totcredtrack = "ON TRACK"; }                                //if total credits + in-progress credits are <= 84, set ON TRACK (not satisfied)
                         else { totcredtrack = "OFF TRACK"; }                            //else, off track
                         string gradcredtrack;                                           //graded credits
-                        if (!x.getTransferStud()) {  //if student is not transfer, need at least 67 graded credits to be satisfied
+                        if (!x.getTransferStud()) { 
                             if (x.getGradedCreds() >= 67) { gradcredtrack = "SATISFIED"; }
-                            else if (x.getGradedCreds() + x.getCredsInProgress() >= 67) { gradcredtrack = "ON TRACK"; } //need total 67 at least to be on track
+                            else if (x.getGradedCreds() + x.getCredsInProgress() >= 67) { gradcredtrack = "ON TRACK"; }
                             else { gradcredtrack = "OFF TRACK"; }
                         }
-                        else                        //if student IS transfer, only need 48 graded creds
+                        else
                         {
                             if (x.getGradedCreds() >= 48) { gradcredtrack = "SATISFIED"; }
                             else if (x.getGradedCreds() + x.getCredsInProgress() >= 48) { gradcredtrack = "ON TRACK"; }
@@ -101,21 +101,21 @@ namespace LibraryProject {
                         }
                         file.WriteLine("");
                         file.WriteLine('\n' + "TOTAL CREDITS (84)" + '\t' + "{0} <= {1} compl. + {2} prog. = {3} total", 
-                            totcredtrack, x.getTotCred(), x.getCredsInProgress(), x.getTotCred() + x.getCredsInProgress()); //write to line
+                            totcredtrack, x.getTotCred(), x.getCredsInProgress(), x.getTotCred() + x.getCredsInProgress());
                         file.WriteLine("");
                         file.WriteLine('\n' + "GRADED CREDITS (67)" + '\t' + "{0} <= {1} graded + {2} prog. = {3} total", 
                             gradcredtrack, x.getGradedCreds(), x.getCredsInProgress(), x.getGradedCreds() + x.getCredsInProgress());
                         file.WriteLine("");
 
-                        if (x.getSkillSat().Contains("SATISFIED")) //if skill is satisfied (legend says requirement met) print
+                        if (x.getSkillSat().Contains("SATISFIED")) //prev "REQUIREMENT MET"
                         {
                             file.WriteLine('\n' + "SKILLS REQUIREMENT" + '\t' + "SATISFIED  <= SKILLS REQUIREMENT MET legend");
                         }
-                        else if (x.getSkillSat().Contains("OFF TRACK")) //otherwise if it says Off track, no course in prog
+                        else if (x.getSkillSat().Contains("OFF TRACK"))
                         {
                             file.WriteLine('\n' + "SKILLS REQUIREMENT" + '\t' + x.getSkillSat() + " <= no legend / no course in prog.");
                         }
-                        else                                            //for each skill course in progress, print ON TRACK along w/ course num
+                        else
                         {
                             List<Course> skills = x.getAllSkills();
                             foreach (Course skill in skills)
@@ -130,15 +130,16 @@ namespace LibraryProject {
                         file.WriteLine("");
 
                         // writing
-                        
-                        if (x.getWritSat().Contains("SATISFIED")) {       //if writing is satisfied (legend says requirement met) print
+
+                        if (x.getWritSat().Contains("SATISFIED"))
+                        { //prev "REQUIREMENT MET"
                             file.WriteLine('\n' + "WRITING REQUIREMENT" + '\t' + "SATISFIED  <= WRITING REQUIREMENT MET legend");
                         }
-                        else if (x.getWritSat().Contains("OFF TRACK"))          //otherwise if it says Off track, no course in prog
+                        else if (x.getWritSat().Contains("OFF TRACK"))
                         {
                             file.WriteLine('\n' + "WRITING REQUIREMENT" + '\t' + x.getWritSat() + " <= no legend / no course in prog.");
                         }
-                        else                                                    //for each skill course in progress, print ON TRACK along w/ course num
+                        else
                         {
                             List<Course> skills = x.getAllWriting();
                             foreach (Course skill in skills)
@@ -152,26 +153,26 @@ namespace LibraryProject {
                         }
 
                         file.WriteLine("");
-                        string gpatrack = "OFF TRACK";                              //GPA
-                        if (x.getGPA() >= 1.67) { gpatrack = "ON TRACK"; }          //ON TRACK if >= 1.67
-                        file.WriteLine('\n' + "MINIMUM GPA (1.67)" + '\t' + gpatrack + " <= " + x.getGPA()); //write to line
+                        string gpatrack = "OFF TRACK";
+                        if (x.getGPA() >= 1.67) { gpatrack = "ON TRACK"; }
+                        file.WriteLine('\n' + "MINIMUM GPA (1.67)" + '\t' + gpatrack + " <= " + x.getGPA());
                         file.WriteLine("");
-                        string enrolltrack = "OFF TRACK";                           //enrollment track
-                        if (x.getPartTime() == true)                                //check part time status
+                        string enrolltrack = "OFF TRACK";
+                        if (x.getPartTime() == true)
                         {
-                            if (x.getEnrollUnits() >= 5.9) { enrolltrack = "SATISFIED"; } //only need 5.9 if part time
+                            if (x.getEnrollUnits() >= 5.9) { enrolltrack = "SATISFIED"; }
                         }
-                        else if (x.getEnrollUnits() >= 6.0) { enrolltrack = "SATISFIED"; }//if not part time, need 6.0
-                        file.WriteLine('\n' + "ENROLLMENT UNITS" + '\t' + enrolltrack + " <= " + x.getEnrollUnits() + '\n');   //write
+                        else if (x.getEnrollUnits() >= 6.0) { enrolltrack = "SATISFIED"; }
+                        file.WriteLine('\n' + "ENROLLMENT UNITS" + '\t' + enrolltrack + " <= " + x.getEnrollUnits() + '\n');   //needs to check if eu is below minimum
                         file.WriteLine();
 
 
-                        int ctr = 0;                                                    //checks to see whether 0 == semester count - 1
+                        int ctr = 0; //checks to see whether 0 == semester count - 1
                         List<Semester> semList = x.getStudentSemesters();
                         for (int i = 0; i < semList.Count(); i++)
                         {
                             String EUnits = "" + semList[i].getEUnits();
-                            if (EUnits.Length == 1)                                     //formats the enrollment units so that they will all be length 5
+                            if (EUnits.Length == 1) //formats the enrollment units so that they will all be length 5
                             {
                                 EUnits += ".000";
                             }
@@ -190,11 +191,11 @@ namespace LibraryProject {
                             }
                             string n = semList[i].getSemesterName();
                             file.Write(n);
-                            for (int o = n.Length; o < 24; o++)                         //formatting spaces
+                            for (int o = n.Length; o < 24; o++)
                             {
                                 file.Write(" ");
                             }
-                            if (semList[i].getSemesterName().Contains("NON-GW"))        //write transfer credits
+                            if (semList[i].getSemesterName().Contains("NON-GW"))
                             {
                                 file.WriteLine(EUnits + " (" + semList[i].getCreditHours() + " transfer credits)");
                             }
@@ -204,9 +205,9 @@ namespace LibraryProject {
                             {
                                 file.WriteLine(EUnits + " (" + semList[i].getCreditHours() + " transfer credits)");
                             }
-                            else if(!semList[i].getInProg() && !semList[i].getHalfInProg())                             //write each semester, enrollment units + cred hrs
+                            else if(!semList[i].getInProg() && !semList[i].getHalfInProg())
                             {
-                                file.WriteLine(EUnits + " (" + semList[i].getCreditHours() + " compl. credits)");       
+                                file.WriteLine(EUnits + " (" + semList[i].getCreditHours() + " compl. credits)");
                             }
                             else if (semList[i].getInProg() && !semList[i].getHalfInProg())
                             {
