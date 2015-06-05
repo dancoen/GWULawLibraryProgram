@@ -222,6 +222,10 @@ namespace LibraryProject {
                         file.WriteLine("");
                         file.WriteLine("");
                         file.WriteLine();
+                        if (x.getnonLawBool() == true)
+                        {
+                            file.WriteLine("***Non-Law Courses on Transcript***");
+                        }
                         file.WriteLine('\f');
                     }
                 }
