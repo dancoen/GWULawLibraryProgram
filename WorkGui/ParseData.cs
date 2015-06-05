@@ -527,6 +527,8 @@ namespace LibraryProject
                 worksheet.Cells[1, n + 15].Value = "Enrollment Units Status";
                 worksheet.Cells[1, n + 16].Value = "Enrollment Units";
                 worksheet.Cells[1, n + 17].Value = "Enrollment Units Notes";
+                worksheet.Cells[1, n + 18].Value = "Took Non-Law";
+                n++;
                 worksheet.Cells[1, n + 18].Value = "Sem_1";
                 worksheet.Cells[1, n + 19].Value = "Sem_1_RU";
                 worksheet.Cells[1, n + 20].Value = "Sem_1_Credits";
@@ -557,8 +559,6 @@ namespace LibraryProject
                 worksheet.Cells[1, n + 45].Value = "Sem_10";
                 worksheet.Cells[1, n + 46].Value = "Sem_10_RU";
                 worksheet.Cells[1, n + 47].Value = "Sem_10_Credits";
-                worksheet.Cells[1, n + 48].Value = "Notes";
-               
                 
                 int count = 2;
                 foreach (Student student in studs)
