@@ -373,7 +373,7 @@ namespace LibraryProject
                                 Course reuse = new Course();
                                 //reuse.setCourseName("LAW");
                                 reuse.setCourseName(text[k].Substring(4, 25));
-                                string Coursecred = text[k].Substring(38, 4);
+                                string Coursecred = text[k].Substring(37, 5);
                                 Coursecred = Coursecred.Trim();
                                 double courseCred = Double.Parse(Coursecred);
                                 reuse.setCreds(courseCred);
@@ -708,13 +708,13 @@ namespace LibraryProject
                     double lawCreds = 0.0;
                     foreach (Semester semester in student.getStudentSemesters())
                     {
-                        if (!semester.getInProg())
-                        {
+                       // if (!semester.getInProg())
+                        //{
                             foreach (Course course in semester.getCourseList())
                             {
                                 lawCreds += course.getCreds();
                             }
-                        }
+                        //}
                         for (int h = 0; h < student.getreqcourses().Length; h++)
                         {
                             Course course = student.getreqcourses()[h];
