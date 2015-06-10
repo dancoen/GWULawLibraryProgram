@@ -559,7 +559,7 @@ namespace LibraryProject
                 worksheet.Cells[1, n + 45].Value = "Sem_10";
                 worksheet.Cells[1, n + 46].Value = "Sem_10_RU";
                 worksheet.Cells[1, n + 47].Value = "Sem_10_Credits";
-                
+                n--;
                 int count = 2;
                 foreach (Student student in studs)
                 {
@@ -706,7 +706,7 @@ namespace LibraryProject
                                 worksheet.Cells[count, i + 1].Value = course.getGrade();
                             }
                         }
-                        int g = n + 17;
+                        int g = n + 19;
                         while (!(worksheet.Cells[1, g].Value.ToString().Contains("Sem_" + semesterNum.ToString())))
                         {
                             g++;
@@ -740,7 +740,7 @@ namespace LibraryProject
                         }
                         if (student.getnonLawBool() == true)
                         {
-                            worksheet.Cells[count, n + 48].Value = "*** Note: Non-Law School courses on transcript ***";
+                            worksheet.Cells[count, n + 18].Value = "*** Note: Non-Law School courses on transcript ***";
                         }
                     }
                     if (student.getPartTime() == true)
