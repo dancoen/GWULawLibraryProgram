@@ -107,7 +107,7 @@ namespace LibraryProject {
                             gradcredtrack, x.getGradedCreds(), x.getCredsInProgress(), x.getGradedCreds() + x.getCredsInProgress());
                         file.WriteLine("");
 
-                        if (x.getSkillSat().Contains("REQUIREMENT MET"))
+                        if (x.getSkillSat().Contains("SATISFIED")) //prev "REQUIREMENT MET"
                         {
                             file.WriteLine('\n' + "SKILLS REQUIREMENT" + '\t' + "SATISFIED  <= SKILLS REQUIREMENT MET legend");
                         }
@@ -130,8 +130,9 @@ namespace LibraryProject {
                         file.WriteLine("");
 
                         // writing
-                        
-                        if (x.getWritSat().Contains("REQUIREMENT MET")) {
+
+                        if (x.getWritSat().Contains("SATISFIED"))
+                        { //prev "REQUIREMENT MET"
                             file.WriteLine('\n' + "WRITING REQUIREMENT" + '\t' + "SATISFIED  <= WRITING REQUIREMENT MET legend");
                         }
                         else if (x.getWritSat().Contains("OFF TRACK"))
