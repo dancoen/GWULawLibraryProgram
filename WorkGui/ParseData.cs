@@ -774,17 +774,23 @@ namespace LibraryProject
                             }
                         }
 <<<<<<< HEAD
+<<<<<<< HEAD
                         if (lawCreds < student.getTotCred())
                         {
                             student.setnonLawBool(true);
                             worksheet.Cells[count, n + 48].Value = "*** Note: Non-Law School courses on transcript ***";
                         }
 =======
+=======
+>>>>>>> origin/Vic
                     }
                     if (lawCreds < student.getTotCred())
                     {
                         student.setnonLawBool(true);
                         worksheet.Cells[count, n + 18].Value = "*** Note: Non-Law School courses on transcript ***";
+<<<<<<< HEAD
+>>>>>>> origin/Vic
+=======
 >>>>>>> origin/Vic
                     }
                     if (student.getPartTime() == true)
