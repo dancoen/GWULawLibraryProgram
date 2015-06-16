@@ -16,7 +16,7 @@ namespace LibraryProject {
     {
         public static void createText(string path, List<Student> studentList, RequiredClasses Object)
         {
-            string doc = path + "/" + "studReports.doc";
+            string doc = path + "/" + "studReports.txt";
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(doc, false))
                 {
                     foreach (Student x in studentList)
