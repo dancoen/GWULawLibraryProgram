@@ -67,10 +67,10 @@ namespace classesForLibraryExcel
                 public double getGradedCreds() { return gradedCreds; }
                 public void setGradedCreds(double gradedCreds1) { gradedCreds = gradedCreds1; }
                 public void addGradedCreds(double gradedCreds1) { gradedCreds += gradedCreds1; }
-        private int credsInProgress = 0;
-                public int getCredsInProgress() { return credsInProgress; }
-                public void setCredsInProgress(int credsInProgress1) { credsInProgress = credsInProgress1; }
-                public void addCredsInProgress(int addCred) { credsInProgress += addCred; }
+        private double credsInProgress = 0;
+                public double getCredsInProgress() { return credsInProgress; }
+                public void setCredsInProgress(double credsInProgress1) { credsInProgress = credsInProgress1; }
+                public void addCredsInProgress(double addCred) { credsInProgress += addCred; }
         private double totCred = 0.0; //total credits
                 public double getTotCred() { return totCred; }
                 public void setTotCred(double totCred1) { totCred = totCred1; }

@@ -19,13 +19,13 @@ namespace LibraryProject
     class ParseData
     {
         private static int n = 4;
-        public static void setTotalCredComplete(List<Student> stud)
+        public static void setTotalCredComplete(List<Student> stud, RequiredClasses rc)
         {
             for (int i = 0; i < stud.Count; i++)
             {
                 List<Semester> semList = stud[i].getStudentSemesters();
                 int count = 0;//the count for total credits completed
-                int count1 = 0;//the count for credits in progess
+                double count1 = 0;//the count for credits in progess
                 int count2 = 0;//the count for graded credits
                 for (int j = 0; j < semList.Count; j++)
                 {
@@ -49,6 +49,24 @@ namespace LibraryProject
                     else
                     {
                         count1 += semList[j].getCreditHours();//indicates any other type of credit that doesnt have a grade and isnt in progress
+                        /*for (int n = 0; n < semList[j].getCourseList().Count; n++) {
+                            if (semList[j].getCourseList()[n].getnonLetterGraded() == true) {
+                                count1 -= semList[j].getCourseList()[n].getCreds();
+                            }
+                        }
+                         */
+                        for (int n = 0; n < semList[j].getCourseList().Count; n++)
+                        {
+                            for (int m = 0; m < rc.getnonLetterGraded().Count; m++)
+                            {
+                                string studName = semList[j].getCourseList()[n].getCourseName();
+                                string rcName = rc.getnonLetterGraded()[m];
+                                if (studName.Contains(rcName))
+                                {
+                                    count1 -= semList[j].getCourseList()[n].getCreds();
+                                }
+                            }
+                        }
                     }
                     if (semList[j].getEUnits() == 0)//indicates an in progress writing class
                     {
