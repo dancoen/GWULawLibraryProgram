@@ -56,7 +56,10 @@ namespace LibraryProject
             int y = splitCourseList(x, writing);    //parses course list into the proper array, returns idx where writing stops
             int z = splitCourseList(y, skills);     //parses course list into the proper array, returns idx where skills stop
             int last = splitCourseList(z, nonLetterGraded); //parses course list into the proper array, returns idx where nonlettergraded stops
-            num = required.Count;
+            for (int i = 0; i < nonLetterGraded.Count; i++) {
+                nonLetterGraded[i] = nonLetterGraded[i].Substring(0, 4);
+            }
+                num = required.Count;
             setActual();                            //sets default required course array
         }
 

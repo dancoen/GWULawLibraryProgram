@@ -59,11 +59,11 @@ namespace LibraryProject
                         {
                             for (int m = 0; m < rc.getnonLetterGraded().Count; m++)
                             {
-                                string studName = semList[j].getCourseList()[n].getCourseName();
+                                string studName = semList[j].getCourseList()[n].getCourseNum();
                                 string rcName = rc.getnonLetterGraded()[m];
-                                if (studName.Contains(rcName))
+                                if (rcName.Contains(studName))
                                 {
-                                    count1 -= semList[j].getCourseList()[n].getCreds();
+                                    count1 = count1 - semList[j].getCourseList()[n].getCreds();
                                 }
                             }
                         }
