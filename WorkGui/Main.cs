@@ -77,7 +77,7 @@ namespace LibraryProject
             List<Student> studentList = ParseData.createStudent(oneColumn);
             modifyEU(studentList); //fixes the in progress semester case
             ParseData.partTime(studentList);
-            ParseData.setTotalCredComplete(studentList);
+            ParseData.setTotalCredComplete(studentList, Obj);
             foreach (Course x in Obj.blank)
             {
                 Console.WriteLine(x.getCourseName());
