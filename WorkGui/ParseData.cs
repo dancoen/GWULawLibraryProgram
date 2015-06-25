@@ -23,6 +23,7 @@ namespace LibraryProject
         {
             for (int i = 0; i < stud.Count; i++)
             {
+                double gradedInProg = 0.0;
                 List<Semester> semList = stud[i].getStudentSemesters();
                 int count = 0;//the count for total credits completed
                 double count1 = 0;//the count for credits in progess
@@ -49,12 +50,8 @@ namespace LibraryProject
                     else
                     {
                         count1 += semList[j].getCreditHours();//indicates any other type of credit that doesnt have a grade and isnt in progress
-                        /*for (int n = 0; n < semList[j].getCourseList().Count; n++) {
-                            if (semList[j].getCourseList()[n].getnonLetterGraded() == true) {
-                                count1 -= semList[j].getCourseList()[n].getCreds();
-                            }
-                        }
-                         */
+                        gradedInProg = count1;
+                        
                         for (int n = 0; n < semList[j].getCourseList().Count; n++)
                         {
                             for (int m = 0; m < rc.getnonLetterGraded().Count; m++)
@@ -63,7 +60,7 @@ namespace LibraryProject
                                 string rcName = rc.getnonLetterGraded()[m];
                                 if (rcName.Contains(studName))
                                 {
-                                    count1 = count1 - semList[j].getCourseList()[n].getCreds();
+                                    gradedInProg = gradedInProg - semList[j].getCourseList()[n].getCreds();
                                 }
                             }
                         }
@@ -76,6 +73,7 @@ namespace LibraryProject
                 stud[i].setGradedCreds(count2);//sets all the respective credits to the student
                 stud[i].setCredsInProgress(count1);
                 stud[i].setTotCred(count);
+                stud[i].setgradedcredsInProgess(gradedInProg);
             }
         }
         public void setGradedCreds(Student stud)//don't know if this is being used but it seems to just set the graded credits, seems to repeat the code above
@@ -635,7 +633,7 @@ namespace LibraryProject
                         worksheet.Cells[count, n + 5].Value = "OFF TRACK";
                     }
                     worksheet.Cells[count, n + 6].Value = student.getGradedCreds();
-                    worksheet.Cells[count, n + 7].Value = student.getCredsInProgress();
+                    worksheet.Cells[count, n + 7].Value = student.getgradedcredsInProgress();
                     worksheet.Cells[count, n + 8].Value = student.getGradedCreds() + student.getCredsInProgress();
                     worksheet.Cells[count, n + 9].Value = student.getSkillSat();
                     if (student.getSkillSat().Contains("OFF TRACK"))
