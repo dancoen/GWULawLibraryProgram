@@ -60,6 +60,10 @@ namespace classesForLibraryExcel
                 public bool getnonLawBool() { return nonLawCourses; }
                 public void setnonLawBool(bool x) { nonLawCourses = x; }
 
+        private string[] transcript = null;
+                public string[] getTranscript() { return transcript; }
+                public void setTranscript(string[] t) { transcript = t; }
+
         private double GPA = 0.0;
                 public double getGPA() { return GPA; }
                 public void setGPA(double x) { GPA = x; }
