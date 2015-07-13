@@ -811,5 +811,13 @@ namespace LibraryProject
                 }
             }
         }
+        public void GenFullClearance(List<Student> clearedStuds) { 
+            string path = Directory.GetCurrentDirectory() + "ClearedStuds.txt";
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(@path,true)){
+                foreach (Student stud in clearedStuds){
+                    file.WriteLine(stud.getGWid());
+                }
+            }
+        } 
     }
 }
