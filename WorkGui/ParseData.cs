@@ -822,41 +822,5 @@ namespace LibraryProject
                 }
             }
         }
-        public static void GenExcelFull(List<Student> studs, RequiredClasses Object, String folder) {
-            using (var package = new ExcelPackage(new System.IO.FileInfo("FullClearance.xlsx")))
-            {
-                ExcelWorksheet worksheet;
-                var testWork = package.Workbook.Worksheets["CLEARED"];
-                if (testWork == null)
-                {
-                    worksheet = package.Workbook.Worksheets.Add("CLEARED");
-                    worksheet = package.Workbook.Worksheets.Add("NEW");
-                    worksheet = package.Workbook.Worksheets.Add("PENDING");
-                }
-                else
-                {
-                    package.Workbook.Worksheets.Delete(package.Workbook.Worksheets["CLEARED"].Index);
-                    package.Workbook.Worksheets.Delete(package.Workbook.Worksheets["NEW"].Index);
-                    package.Workbook.Worksheets.Delete(package.Workbook.Worksheets["PENDING"].Index);
-                    worksheet = package.Workbook.Worksheets.Add("CLEARED");
-                    worksheet = package.Workbook.Worksheets.Add("NEW");
-                    worksheet = package.Workbook.Worksheets.Add("PENDING");
-                }
-                worksheet.Cells[1, 1].Value = "GWID";
-                worksheet.Cells[1, 1].Style.Font.Bold = true;
-                /*package.Workbook.Worksheets["CLEARED"].Cells[1,1].Value = "GWID";
-                package.Workbook.Worksheets["CLEARED"].Cells[1,2].Value = "Name";
-                package.Workbook.Worksheets["CLEARED"].Cells[1,3].Value = "Credits Completed";
-                package.Workbook.Worksheets["CLEARED"].Cells[1,4].Value = "Credits Pending";
-                package.Workbook.Worksheets["CLEARED"].Cells[1,5].Value = "Graded Credits Completed";
-                package.Workbook.Worksheets["CLEARED"].Cells[1,6].Value = "Graded Credits Pending";
-                package.Workbook.Worksheets["CLEARED"].Cells[1,7].Value = "Skills Requirement";
-                package.Workbook.Worksheets["CLEARED"].Cells[1,8].Value = "Writing Requirement";
-                package.Workbook.Worksheets["CLEARED"].Cells[1,9].Value = "Non-LAW Courses";
-                for(int i = 1; i <= 9; i++) {
-                    package.Workbook.Worksheets["CLEARED"].Cells[1,i].Style.Font.Bold = true;
-                }*/
-            }
-        }
     }
 }

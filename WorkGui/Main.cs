@@ -88,7 +88,7 @@ namespace LibraryProject
                 requiredCourseMethods.checkSkills(x, Obj);
                 requiredCourseMethods.checkWriting(x, Obj);
             }
-            ParseData.GenExcelFull(studentList, Obj, folder);
+            ParseData.GenExcel(studentList, Obj, folder);
             //string currentDir = Form1.getFolder();
             createTextDoc.createText(folder, studentList, Obj);
             Application.Exit();
