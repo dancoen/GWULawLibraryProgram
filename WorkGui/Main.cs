@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -77,7 +77,7 @@ namespace LibraryProject
             List<Student> studentList = ParseData.createStudent(oneColumn);
             modifyEU(studentList); //fixes the in progress semester case
             ParseData.partTime(studentList);
-            ParseData.setTotalCredComplete(studentList);
+            ParseData.setTotalCredComplete(studentList, Obj);
             foreach (Course x in Obj.blank)
             {
                 Console.WriteLine(x.getCourseName());
@@ -88,7 +88,7 @@ namespace LibraryProject
                 requiredCourseMethods.checkSkills(x, Obj);
                 requiredCourseMethods.checkWriting(x, Obj);
             }
-            ParseData.GenExcel(studentList, Obj, folder);
+            ParseData.GenExcelFull(studentList, Obj, folder);
             //string currentDir = Form1.getFolder();
             createTextDoc.createText(folder, studentList, Obj);
             Application.Exit();
