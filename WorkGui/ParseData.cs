@@ -773,31 +773,16 @@ namespace LibraryProject
                                 semesterNum++;
                             }
                         }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                         if (lawCreds < student.getTotCred())
                         {
                             student.setnonLawBool(true);
                             worksheet.Cells[count, n + 48].Value = "*** Note: Non-Law School courses on transcript ***";
                         }
-=======
-=======
->>>>>>> origin/Vic
-=======
->>>>>>> origin/Vic
                     }
                     if (lawCreds < student.getTotCred())
                     {
                         student.setnonLawBool(true);
                         worksheet.Cells[count, n + 18].Value = "*** Note: Non-Law School courses on transcript ***";
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> origin/Vic
-=======
->>>>>>> origin/Vic
-=======
->>>>>>> origin/Vic
                     }
                     if (student.getPartTime() == true)
                     {
