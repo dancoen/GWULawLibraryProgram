@@ -125,11 +125,11 @@ namespace LibraryProject
                     }
                     for (int x = i; x < i + 17; x++)//sets the skills and writing requirements if they are found in the legend
                     {
-                        if (text[x].Contains("SKILLS REQUIREMENT MET"))
+                        if (text[x].Contains("SKILLS REQUIREMENT MET") || (text[x].Contains("SKILLS")))
                         {
                             stud.setSkillSat("SATISFIED");
                         }
-                        if (text[x].Contains("WRITING REQUIREMENT MET"))
+                        if (text[x].Contains("WRITING REQUIREMENT MET") || (text[x].Contains("WRITING")))
                         {
                             stud.setWritSat("SATISFIED");
                         }
