@@ -526,3 +526,35 @@ namespace LibraryProject
         }
     }
 }
+/*
+public void GenFullClearance(List<Student> clearedStuds) { 
+            string path = Directory.GetCurrentDirectory() + "ClearedStuds.txt";
+            if (!File.Exists(path))
+            {
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(@path, true))
+                {
+                    foreach (Student stud in clearedStuds)
+                    {
+                        file.WriteLine(stud.getGWid());
+                        //add each student to newly cleared spreadsheetaru
+                    }
+                }
+            }
+            else {
+                StreamWriter w = File.AppendText(path);
+                string[] GWIDS = File.ReadAllLines(path);
+                for (int i = 0; i < clearedStuds.Count(); i++) {
+                    string studGWID = clearedStuds[i].getGWid();
+                    foreach (string gwid in GWIDS) {
+                        if (studGWID.Equals(gwid)) {
+                            i++;
+                            break;
+                        }
+                    }
+                    w.WriteLine(studGWID);
+                    //add student to newly cleared student worksheet
+                }
+            }
+            return;
+        } 
+*/
