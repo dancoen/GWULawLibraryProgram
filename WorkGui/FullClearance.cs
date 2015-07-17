@@ -18,6 +18,10 @@ namespace LibraryProject
 {
     class FullClearance
     {
+        List<Student> Cleared;
+        List<Student> New;
+        List<Student> Pending;
+
         class ParseData
         {
             private static int n = 4;
@@ -474,8 +478,9 @@ namespace LibraryProject
         {
             bool newStudent = true;
             List<Student> listStudent = new List<Student>();
-            int t1;
-            int t2;
+            int t1 = -1;
+            int t2 = -1;
+            Student temp = new Student();
             for (int i = 0; i < text.Length; i++)
             {
                 if (text[i].Contains("Record of") && newStudent)//indicates a new student has been found
@@ -485,12 +490,12 @@ namespace LibraryProject
                     string Gwid = text[i - 2].Substring(13, 9);
                     string name = text[i].Substring(11, text[i].Length - 11);//obtains the name of the student
                     name = name.Trim();
-                    Student stud = new Student(name);
+                    Student stud = new Student(name);              
                     stud.setGWid(Gwid);
                     if (text[i + 1].Contains("Law"))//indicates that the student is a law student
                     {
                         stud.setLaw(true);
-                        createSemester(text, stud, i);
+                        ParseData.createSemester(text, stud, i);
                         listStudent.Add(stud);
                     }
                     else if (text[i + 1].Contains("Graduate"))
@@ -512,6 +517,7 @@ namespace LibraryProject
                             stud.setWritSat("SATISFIED");
                         }
                     }
+                    temp = stud;
                 }
                 if (text[i].Contains("END OF DOCUMENT"))//indicates the end of the student file
                 {
@@ -519,13 +525,70 @@ namespace LibraryProject
                     t2 = i;
                     string[] copy = new string[t2 - t1];
                     Array.Copy(text, t1, copy, 0, t2 - t1);
-                    stud.setTranscript(copy);
+                    temp.setTranscript(copy);
                 }
             }
             return listStudent;
         }
+        public void sortStudents(List<Student> studs)
+        {
+            string path = @"C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\ClearedGWIDS.txt";
+            string[] ctext = System.IO.File.ReadAllLines(@"C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\ClearedGWIDS.txt");
+            bool newClear;
+            foreach (Student s in studs)
+            {
+                newClear = false;
+                if (s.getTrack().Contains("OFF"))
+                {
+                    Pending.Add(s);
+                }
+                else if (s.getTrack().Contains("ON TRACK"))
+                {
+                    for (int i = 0; i < ctext.Length; i++)
+                    {
+                        if (!ctext[i].Contains(s.getGWid()))
+                        {
+                            New.Add(s);
+                            newClear = true;
+                            using (StreamWriter text = File.AppendText(path))
+                            {
+                                text.WriteLine("/n + " + s.getGWid());
+                            }
+                            break;
+                        }
+                    }
+                    if (newClear == false) Cleared.Add(s);
+                }
+            }
+        }
+        public void createTrFiles()
+        {
+            foreach (Student s in Cleared)
+            {
+                string cleared = @"C:\Users\Victoria\Documents\GWUlawlib text files\testOutput\CLEARED.txt";
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(cleared, false))
+                {
+                }
+            }
+            foreach (Student s in New)
+            {
+                string newlycl = @"C:\Users\Victoria\Documents\GWUlawlib text files\testOutput\NEW.txt";
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(newlycl, false))
+                {
+                }
+            }
+            foreach (Student s in Pending)
+            {
+                string pending = @"C:\Users\Victoria\Documents\GWUlawlib text files\testOutput\PENDING.txt";
+                using (System.IO.StreamWriter file = new System.IO.StreamWriter(pending, false))
+                {
+                }
+            }
+        }
     }
 }
+
+
 /*
 public void GenFullClearance(List<Student> clearedStuds) { 
             string path = Directory.GetCurrentDirectory() + "ClearedStuds.txt";

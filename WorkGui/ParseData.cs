@@ -724,12 +724,12 @@ namespace LibraryProject
                     double lawCreds = 0.0;
                     foreach (Semester semester in student.getStudentSemesters())
                     {
-                       // if (!semester.getInProg())
+                        // if (!semester.getInProg())
                         //{
-                            foreach (Course course in semester.getCourseList())
-                            {
-                                lawCreds += course.getCreds();
-                            }
+                        foreach (Course course in semester.getCourseList())
+                        {
+                            lawCreds += course.getCreds();
+                        }
                         //}
                         for (int h = 0; h < student.getreqcourses().Length; h++)
                         {
