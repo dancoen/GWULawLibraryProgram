@@ -533,6 +533,9 @@ namespace LibraryProject
         public void sortStudents(List<Student> studs)
         {
             string path = @"C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\ClearedGWIDS.txt";
+            if (!File.Exists(path)) {           
+                File.Create(path);
+            }
             string[] ctext = System.IO.File.ReadAllLines(@"C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\ClearedGWIDS.txt");
             foreach (Student s in studs)
             {
@@ -550,7 +553,7 @@ namespace LibraryProject
                             break;
                         }
                     }
-                    if (s.getWritSat().Equals("SATISFIED") && s.getSkillSat().Equals("SATISFIED") && s.getTotCred >= 84)
+                    if (s.getWritSat().Equals("SATISFIED") && s.getSkillSat().Equals("SATISFIED") && s.getTotCred() >= 84)
                     {
                         New.Add(s);
                         Cleared.Add(s);
