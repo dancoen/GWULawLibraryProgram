@@ -534,7 +534,6 @@ namespace LibraryProject
         {
             string path = @"C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\ClearedGWIDS.txt";
             string[] ctext = System.IO.File.ReadAllLines(@"C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\ClearedGWIDS.txt");
-            bool newClear;
             foreach (Student s in studs)
             {
                 if (s.getTrack().Contains("OFF"))
