@@ -100,7 +100,7 @@ namespace LibraryProject
                     }
                 }
             }
-          
+
             public static void createSemester(string[] text, Student stud, int i)//method that sets the list of semesters into the students
             {
                 List<Semester> semesterList = new List<Semester>();
@@ -546,6 +546,27 @@ namespace LibraryProject
                 {
                     for (int i = 0; i < ctext.Length; i++)
                     {
+<<<<<<< HEAD
+                        if (ctext[i].Contains(s.getGWid()))
+                        {
+                            Cleared.Add(s);
+                            break;
+                        }
+                    }
+                    if (s.getWritSat().Equals("SATISFIED") && s.getSkillSat().Equals("SATISFIED") && s.getTotCred() >= 84)
+                    {
+                        New.Add(s);
+                        Cleared.Add(s);
+                        using (StreamWriter text = File.AppendText(path))
+                        {
+                            text.WriteLine("/n + " + s.getGWid());
+                        }
+                    }
+                    else
+                    {
+                        Pending.Add(s);
+                    }
+=======
                         if (!ctext[i].Contains(s.getGWid()))
                         {
                             New.Add(s);
@@ -558,6 +579,7 @@ namespace LibraryProject
                         }
                     }
                     if (newClear == false) Cleared.Add(s);
+>>>>>>> origin/Vic
                 }
             }
         }
