@@ -490,7 +490,7 @@ namespace LibraryProject
                     string Gwid = text[i - 2].Substring(13, 9);
                     string name = text[i].Substring(11, text[i].Length - 11);//obtains the name of the student
                     name = name.Trim();
-                    Student stud = new Student(name);              
+                    Student stud = new Student(name);
                     stud.setGWid(Gwid);
                     if (text[i + 1].Contains("Law"))//indicates that the student is a law student
                     {
@@ -537,7 +537,6 @@ namespace LibraryProject
             bool newClear;
             foreach (Student s in studs)
             {
-                newClear = false;
                 if (s.getTrack().Contains("OFF"))
                 {
                     Pending.Add(s);
@@ -552,7 +551,7 @@ namespace LibraryProject
                             break;
                         }
                     }
-                    if (s.getWritSat().Equals("SATISFIED") && s.getSkillSat().Equals("SATISFIED") && s.getTotCred() >= 84)
+                    if (s.getWritSat().Equals("SATISFIED") && s.getSkillSat().Equals("SATISFIED") && s.getTotCred >= 84)
                     {
                         New.Add(s);
                         Cleared.Add(s);
