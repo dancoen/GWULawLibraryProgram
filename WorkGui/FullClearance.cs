@@ -546,6 +546,7 @@ namespace LibraryProject
                 {
                     for (int i = 0; i < ctext.Length; i++)
                     {
+<<<<<<< HEAD
                         if (ctext[i].Contains(s.getGWid()))
                         {
                             Cleared.Add(s);
@@ -565,6 +566,20 @@ namespace LibraryProject
                     {
                         Pending.Add(s);
                     }
+=======
+                        if (!ctext[i].Contains(s.getGWid()))
+                        {
+                            New.Add(s);
+                            newClear = true;
+                            using (StreamWriter text = File.AppendText(path))
+                            {
+                                text.WriteLine("/n + " + s.getGWid());
+                            }
+                            break;
+                        }
+                    }
+                    if (newClear == false) Cleared.Add(s);
+>>>>>>> origin/Vic
                 }
             }
         }
