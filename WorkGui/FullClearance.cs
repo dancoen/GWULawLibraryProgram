@@ -571,25 +571,34 @@ namespace LibraryProject
         }
         public void createTrFiles()
         {
-            foreach (Student s in Cleared)
+            string cleared = @"C:\Users\Victoria\Documents\GWUlawlib text files\testOutput\CLEARED.txt";
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(cleared, true))
             {
-                string cleared = @"C:\Users\Victoria\Documents\GWUlawlib text files\testOutput\CLEARED.txt";
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(cleared, false))
+                foreach (Student s in Cleared)
                 {
+                    file.WriteLine(s.getTranscript());
+                    file.WriteLine("\n");
+                    file.WriteLine("\n");
                 }
             }
-            foreach (Student s in New)
+            string newlycl = @"C:\Users\Victoria\Documents\GWUlawlib text files\testOutput\NEW.txt";
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(newlycl, false))
             {
-                string newlycl = @"C:\Users\Victoria\Documents\GWUlawlib text files\testOutput\NEW.txt";
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(newlycl, false))
+                foreach (Student s in New)
                 {
+                    file.WriteLine(s.getTranscript());
+                    file.WriteLine("\n");
+                    file.WriteLine("\n");
                 }
             }
-            foreach (Student s in Pending)
+            string pending = @"C:\Users\Victoria\Documents\GWUlawlib text files\testOutput\PENDING.txt";
+            using (System.IO.StreamWriter file = new System.IO.StreamWriter(pending, false))
             {
-                string pending = @"C:\Users\Victoria\Documents\GWUlawlib text files\testOutput\PENDING.txt";
-                using (System.IO.StreamWriter file = new System.IO.StreamWriter(pending, false))
+                foreach (Student s in Pending)
                 {
+                    file.WriteLine(s.getTranscript());
+                    file.WriteLine("\n");
+                    file.WriteLine("\n");
                 }
             }
         }
