@@ -18,9 +18,9 @@ namespace LibraryProject
 {
     class FullClearance
     {
-        static List<Student> Cleared;
-        static List<Student> New;
-        static List<Student> Pending;
+        List<Student> Cleared;
+        List<Student> New;
+        List<Student> Pending;
 
         class ParseData
         {
@@ -530,8 +530,7 @@ namespace LibraryProject
             }
             return listStudent;
         }
-
-        public static void sortStudents(List<Student> studs)
+        public void sortStudents(List<Student> studs)
         {
             string path = @"C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\ClearedGWIDS.txt";
             if (!File.Exists(path)) {           
@@ -557,6 +556,7 @@ namespace LibraryProject
                     if (s.getWritSat().Equals("SATISFIED") && s.getSkillSat().Equals("SATISFIED") && s.getTotCred() >= 84)
                     {
                         New.Add(s);
+                        Cleared.Add(s);
                         using (StreamWriter text = File.AppendText(path))
                         {
                             text.WriteLine("/n + " + s.getGWid());
@@ -569,7 +569,7 @@ namespace LibraryProject
                 }
             }
         }
-        public static List<Student> createTrFiles()
+        public void createTrFiles()
         {
             string cleared = @"C:\Users\Victoria\Documents\GWUlawlib text files\testOutput\CLEARED.txt";
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(cleared, true))
@@ -601,23 +601,11 @@ namespace LibraryProject
                     file.WriteLine("\n");
                 }
             }
-            return Cleared;
         }
-        /*public void updateClearedGWIDs() //may not be used if GenFullClearance is used instead
-        {
-            string path = @"C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\ClearedGWIDS.txt";
-            using (System.IO.StreamWriter file = new System.IO.StreamWriter(path, true))
-            {
-                foreach (Student s in New)
-                {
-                    file.WriteLine(s.getGWid());
-                    file.WriteLine("\n");
-                }
-            }
-        }*/
     }
 }
-   
+
+
 /*
 public void GenFullClearance(List<Student> clearedStuds) { 
             string path = Directory.GetCurrentDirectory() + "ClearedStuds.txt";
@@ -627,7 +615,7 @@ public void GenFullClearance(List<Student> clearedStuds) {
                 {
                     foreach (Student stud in clearedStuds)
                     {
-                        file.WriteLine(stud.getGWid() + "\n");
+                        file.WriteLine(stud.getGWid());
                         //add each student to newly cleared spreadsheetaru
                     }
                 }
