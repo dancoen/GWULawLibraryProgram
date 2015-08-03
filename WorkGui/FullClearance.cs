@@ -602,18 +602,13 @@ namespace LibraryProject
                 }
             }
         }
-    }
-}
-
-
-/*
-public void GenFullClearance(List<Student> clearedStuds) { 
+        public void GenFullClearance(RequiredClasses obj, String folder) { 
             string path = Directory.GetCurrentDirectory() + "ClearedStuds.txt";
             if (!File.Exists(path))
             {
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(@path, true))
                 {
-                    foreach (Student stud in clearedStuds)
+                    foreach (Student stud in Cleared)
                     {
                         file.WriteLine(stud.getGWid());
                         //add each student to newly cleared spreadsheetaru
@@ -623,8 +618,8 @@ public void GenFullClearance(List<Student> clearedStuds) {
             else {
                 StreamWriter w = File.AppendText(path);
                 string[] GWIDS = File.ReadAllLines(path);
-                for (int i = 0; i < clearedStuds.Count(); i++) {
-                    string studGWID = clearedStuds[i].getGWid();
+                for (int i = 0; i < Cleared.Count(); i++) {
+                    string studGWID = Cleared[i].getGWid();
                     foreach (string gwid in GWIDS) {
                         if (studGWID.Equals(gwid)) {
                             i++;
@@ -635,6 +630,10 @@ public void GenFullClearance(List<Student> clearedStuds) {
                     //add student to newly cleared student worksheet
                 }
             }
-            return;
+            ParseData.GenExcelFull(folder, New, Cleared, Pending);
         } 
-*/
+    }
+}
+
+
+

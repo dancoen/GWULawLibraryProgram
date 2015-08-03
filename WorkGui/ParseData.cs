@@ -822,5 +822,201 @@ namespace LibraryProject
                 }
             }
         }
+        public static void GenExcelFull(String folder, List<Student> New, List<Student> Cleared, List<Student> Pending)
+        {
+            using (var package = new ExcelPackage(new System.IO.FileInfo("FullClearance.xlsx")))
+            {
+                ExcelWorksheet worksheet;
+                var testWork = package.Workbook.Worksheets["CLEARED"];
+                if (testWork == null)
+                {  
+                    worksheet = package.Workbook.Worksheets.Add("CLEARED");
+                    worksheet = package.Workbook.Worksheets.Add("NEW");
+                    worksheet = package.Workbook.Worksheets.Add("PENDING");
+                }
+                else
+                {
+                    package.Workbook.Worksheets.Delete(package.Workbook.Worksheets["CLEARED"].Index);
+                    package.Workbook.Worksheets.Delete(package.Workbook.Worksheets["NEW"].Index);
+                    package.Workbook.Worksheets.Delete(package.Workbook.Worksheets["PENDING"].Index);
+                    worksheet = package.Workbook.Worksheets.Add("CLEARED");
+                    worksheet = package.Workbook.Worksheets.Add("NEW");
+                    worksheet = package.Workbook.Worksheets.Add("PENDING");
+                }
+                package.Workbook.Worksheets["CLEARED"].Cells[1, 1].Value = "GWID";
+                package.Workbook.Worksheets["CLEARED"].Cells[1, 2].Value = "Name";
+                package.Workbook.Worksheets["CLEARED"].Cells[1, 3].Value = "Credits Completed";
+                package.Workbook.Worksheets["CLEARED"].Cells[1, 4].Value = "Credits Pending";
+                package.Workbook.Worksheets["CLEARED"].Cells[1, 5].Value = "Graded Credits Completed";
+                package.Workbook.Worksheets["CLEARED"].Cells[1, 6].Value = "Graded Credits Pending";
+                package.Workbook.Worksheets["CLEARED"].Cells[1, 7].Value = "Skills Requirement";
+                package.Workbook.Worksheets["CLEARED"].Cells[1, 8].Value = "Writing Requirement";
+                package.Workbook.Worksheets["CLEARED"].Cells[1, 9].Value = "Non-LAW Courses";
+                package.Workbook.Worksheets["NEW"].Cells[1, 1].Value = "GWID";
+                package.Workbook.Worksheets["NEW"].Cells[1, 2].Value = "Name";
+                package.Workbook.Worksheets["NEW"].Cells[1, 3].Value = "Credits Completed";
+                package.Workbook.Worksheets["NEW"].Cells[1, 4].Value = "Credits Pending";
+                package.Workbook.Worksheets["NEW"].Cells[1, 5].Value = "Graded Credits Completed";
+                package.Workbook.Worksheets["NEW"].Cells[1, 6].Value = "Graded Credits Pending";
+                package.Workbook.Worksheets["NEW"].Cells[1, 7].Value = "Skills Requirement";
+                package.Workbook.Worksheets["NEW"].Cells[1, 8].Value = "Writing Requirement";
+                package.Workbook.Worksheets["NEW"].Cells[1, 9].Value = "Non-LAW Courses";
+                package.Workbook.Worksheets["PENDING"].Cells[1, 1].Value = "GWID";
+                package.Workbook.Worksheets["PENDING"].Cells[1, 2].Value = "Name";
+                package.Workbook.Worksheets["PENDING"].Cells[1, 3].Value = "Credits Completed";
+                package.Workbook.Worksheets["PENDING"].Cells[1, 4].Value = "Credits Pending";
+                package.Workbook.Worksheets["PENDING"].Cells[1, 5].Value = "Graded Credits Completed";
+                package.Workbook.Worksheets["PENDING"].Cells[1, 6].Value = "Graded Credits Pending";
+                package.Workbook.Worksheets["PENDING"].Cells[1, 7].Value = "Skills Requirement";
+                package.Workbook.Worksheets["PENDING"].Cells[1, 8].Value = "Writing Requirement";
+                package.Workbook.Worksheets["PENDING"].Cells[1, 9].Value = "Non-LAW Courses";
+                for (int i = 1; i <= 9; i++)
+                {
+                    package.Workbook.Worksheets["CLEARED"].Cells[1, i].Style.Font.Bold = true;
+                    package.Workbook.Worksheets["NEW"].Cells[1, i].Style.Font.Bold = true;
+                    package.Workbook.Worksheets["PENDING"].Cells[1, i].Style.Font.Bold = true;
+                }
+                int count = 2;
+                foreach (Student student in Cleared)
+                {
+                    package.Workbook.Worksheets["CLEARED"].Cells[count, 1].Value = student.getGWid();
+                    package.Workbook.Worksheets["CLEARED"].Cells[count, 2].Value = student.getStudentName();
+                    package.Workbook.Worksheets["CLEARED"].Cells[count, 3].Value = student.getTotCred();
+                    package.Workbook.Worksheets["CLEARED"].Cells[count, 4].Value = student.getCredsInProgress();
+                    package.Workbook.Worksheets["CLEARED"].Cells[count, 5].Value = student.getGradedCreds();
+                    package.Workbook.Worksheets["CLEARED"].Cells[count, 6].Value = student.getgradedcredsInProgress();
+                    if (student.getSkillSat().Contains("SATISFIED"))
+                    {
+                        package.Workbook.Worksheets["CLEARED"].Cells[count, 7].Value = "Yes";
+                    }
+                    else
+                    {
+                        package.Workbook.Worksheets["CLEARED"].Cells[count, 7].Value = "No";
+                    }
+                    if (student.getWritSat().Contains("SATISFIED"))
+                    {
+                        package.Workbook.Worksheets["CLEARED"].Cells[count, 8].Value = "Yes";
+                    }
+                    else
+                    {
+                        package.Workbook.Worksheets["CLEARED"].Cells[count, 8].Value = "No";
+                    }
+                    double lawCreds = 0.0;
+                    foreach (Semester semester in student.getStudentSemesters())
+                    {
+                        foreach (Course course in semester.getCourseList())
+                        {
+                            lawCreds += course.getCreds();
+                        }
+                    }
+                    if (lawCreds < student.getTotCred())
+                    {
+                        package.Workbook.Worksheets["CLEARED"].Cells[count, 9].Value = "Yes";
+                    }
+                    else
+                    {
+                        package.Workbook.Worksheets["CLEARED"].Cells[count, 9].Value = "No";
+                    }
+                }
+                foreach (Student student in New)
+                {
+                    package.Workbook.Worksheets["NEW"].Cells[count, 1].Value = student.getGWid();
+                    package.Workbook.Worksheets["NEW"].Cells[count, 2].Value = student.getStudentName();
+                    package.Workbook.Worksheets["NEW"].Cells[count, 3].Value = student.getTotCred();
+                    package.Workbook.Worksheets["NEW"].Cells[count, 4].Value = student.getCredsInProgress();
+                    package.Workbook.Worksheets["NEW"].Cells[count, 5].Value = student.getGradedCreds();
+                    package.Workbook.Worksheets["NEW"].Cells[count, 6].Value = student.getgradedcredsInProgress();
+                    if (student.getSkillSat().Contains("SATISFIED"))
+                    {
+                        package.Workbook.Worksheets["NEW"].Cells[count, 7].Value = "Yes";
+                    }
+                    else
+                    {
+                        package.Workbook.Worksheets["NEW"].Cells[count, 7].Value = "No";
+                    }
+                    if (student.getWritSat().Contains("SATISFIED"))
+                    {
+                        package.Workbook.Worksheets["NEW"].Cells[count, 8].Value = "Yes";
+                    }
+                    else
+                    {
+                        package.Workbook.Worksheets["NEW"].Cells[count, 8].Value = "No";
+                    }
+                    double lawCreds = 0.0;
+                    foreach (Semester semester in student.getStudentSemesters())
+                    {
+                        foreach (Course course in semester.getCourseList())
+                        {
+                            lawCreds += course.getCreds();
+                        }
+                    }
+                    if (lawCreds < student.getTotCred())
+                    {
+                        package.Workbook.Worksheets["NEW"].Cells[count, 9].Value = "Yes";
+                    }
+                    else
+                    {
+                        package.Workbook.Worksheets["NEW"].Cells[count, 9].Value = "No";
+                    }
+                }
+                foreach (Student student in Pending)
+                {
+                    package.Workbook.Worksheets["PENDING"].Cells[count, 1].Value = student.getGWid();
+                    package.Workbook.Worksheets["PENDING"].Cells[count, 2].Value = student.getStudentName();
+                    package.Workbook.Worksheets["PENDING"].Cells[count, 3].Value = student.getTotCred();
+                    package.Workbook.Worksheets["PENDING"].Cells[count, 4].Value = student.getCredsInProgress();
+                    package.Workbook.Worksheets["PENDING"].Cells[count, 5].Value = student.getGradedCreds();
+                    package.Workbook.Worksheets["PENDING"].Cells[count, 6].Value = student.getgradedcredsInProgress();
+                    if (student.getSkillSat().Contains("SATISFIED"))
+                    {
+                        package.Workbook.Worksheets["PENDING"].Cells[count, 7].Value = "Yes";
+                    }
+                    else
+                    {
+                        package.Workbook.Worksheets["PENDING"].Cells[count, 7].Value = "No";
+                    }
+                    if (student.getWritSat().Contains("SATISFIED"))
+                    {
+                        package.Workbook.Worksheets["PENDING"].Cells[count, 8].Value = "Yes";
+                    }
+                    else
+                    {
+                        package.Workbook.Worksheets["PENDING"].Cells[count, 8].Value = "No";
+                    }
+                    double lawCreds = 0.0;
+                    foreach (Semester semester in student.getStudentSemesters())
+                    {
+                        foreach (Course course in semester.getCourseList())
+                        {
+                            lawCreds += course.getCreds();
+                        }
+                    }
+                    if (lawCreds < student.getTotCred())
+                    {
+                        package.Workbook.Worksheets["PENDING"].Cells[count, 9].Value = "Yes";
+                    }
+                    else
+                    {
+                        package.Workbook.Worksheets["PENDING"].Cells[count, 9].Value = "No";
+                    }
+                }
+                package.Workbook.Worksheets["CLEARED"].Cells.AutoFitColumns();
+                package.Workbook.Worksheets["NEW"].Cells.AutoFitColumns();
+                package.Workbook.Worksheets["PENDING"].Cells.AutoFitColumns();
+                package.Save();
+                string path = Directory.GetCurrentDirectory();
+                string newPath = path + "/" + "FullClearance.xlsx";
+                folder = folder + "/FullClearance.xlsx";
+                if (File.Exists(folder))
+                {
+                    File.Delete(folder);
+                }
+                if (File.Exists(newPath))
+                {
+                    File.Move(newPath, folder);
+                    Process.Start(folder);
+                }
+            }
+        }
     }
 }
