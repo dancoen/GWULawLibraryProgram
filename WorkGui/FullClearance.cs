@@ -644,8 +644,7 @@ namespace LibraryProject
                     w.WriteLine(studGWID);
                     //add student to newly cleared student worksheet
                 }
-            }
-            ParseData.GenExcelFull(folder, New, Cleared, Pending);
+            }  
         } 
     }
 }
