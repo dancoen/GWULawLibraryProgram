@@ -16,7 +16,7 @@ namespace LibraryProject {
     {
         public static void createText(string path, List<Student> studentList, RequiredClasses Object)
         {
-            string doc = path + "/" + "studReports.doc";
+            string doc = path + "/" + "studReports.txt";
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(doc, false))
                 {
                     foreach (Student x in studentList)
@@ -100,11 +100,12 @@ namespace LibraryProject {
                             else { gradcredtrack = "OFF TRACK"; }
                         }
                         file.WriteLine("");
-                        file.WriteLine('\n' + "TOTAL CREDITS (84)" + '\t' + "{0} <= {1} compl. + {2} prog. = {3} total", 
+                        file.WriteLine('\n' + "TOTAL CREDITS (84)" + '\t' + "{0} <= {1} compl. + {2} pend. = {3} total", 
                             totcredtrack, x.getTotCred(), x.getCredsInProgress(), x.getTotCred() + x.getCredsInProgress());
                         file.WriteLine("");
-                        file.WriteLine('\n' + "GRADED CREDITS (67)" + '\t' + "{0} <= {1} graded + {2} prog. = {3} total", 
-                            gradcredtrack, x.getGradedCreds(), x.getCredsInProgress(), x.getGradedCreds() + x.getCredsInProgress());
+                        file.WriteLine('\n' + "GRADED CREDITS (67)" + '\t' + "{0} <= {1} graded + {2} pend. = {3} total",
+                            gradcredtrack, x.getGradedCreds(), x.getgradedcredsInProgress(), x.getGradedCreds() + x.getCredsInProgress());
+                        file.WriteLine('\n' + "(48 for transfer students)");
                         file.WriteLine("");
 
                         if (x.getSkillSat().Contains("SATISFIED")) //prev "REQUIREMENT MET"
@@ -190,6 +191,10 @@ namespace LibraryProject {
                                 file.WriteLine('\t' + semList[i].getSemesterName() + '\t' + EUnits + " " + "(" + semList[i].getCreditHours() + " in progress credits)");
                             }
                             string n = semList[i].getSemesterName();
+                            if (semList[i].getSemesterName().Contains("NON-GW"))
+                            {
+                                n = n.Replace("NON-GW ", "");
+                            }
                             file.Write(n);
                             for (int o = n.Length; o < 24; o++)
                             {

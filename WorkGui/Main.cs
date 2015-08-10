@@ -77,7 +77,7 @@ namespace LibraryProject
             List<Student> studentList = ParseData.createStudent(oneColumn);
             modifyEU(studentList); //fixes the in progress semester case
             ParseData.partTime(studentList);
-            ParseData.setTotalCredComplete(studentList);
+            ParseData.setTotalCredComplete(studentList, Obj);
             foreach (Course x in Obj.blank)
             {
                 Console.WriteLine(x.getCourseName());
@@ -93,5 +93,32 @@ namespace LibraryProject
             createTextDoc.createText(folder, studentList, Obj);
             Application.Exit();
         }
+
+        public static void startFull(RequiredClasses Obj, String folder)
+        {
+            Obj.splitRequiredClasses();
+            string[] lines = System.IO.File.ReadAllLines(@Obj.getStudentPath()); //use studentPathway
+            ArrayList newDoc = LineSplit.splitLine(lines);
+            string[] oneColumn = (string[])newDoc.ToArray(typeof(string));
+            List<Student> studentList = FullClearance.createStudent(oneColumn);
+            modifyEU(studentList); //fixes the in progress semester case
+
+            ParseData.partTime(studentList);
+            ParseData.setTotalCredComplete(studentList, Obj);
+            foreach (Course x in Obj.blank)
+            {
+                Console.WriteLine(x.getCourseName());
+            }
+            foreach (Student x in studentList)
+            {
+                requiredCourseMethods.checkRequiredCourses(x, Obj);
+                requiredCourseMethods.checkSkills(x, Obj);
+                requiredCourseMethods.checkWriting(x, Obj);
+            }
+            FullClearance.sortStudents(studentList);
+            List<Student> Cl = FullClearance.createTrFiles();
+            //FullClearance.GenFullClearance(Cl);
+        }
+
     }
 }

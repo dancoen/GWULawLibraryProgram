@@ -49,12 +49,21 @@ namespace WindowsFormsApplication1
             // 
             // button1
             // 
+<<<<<<< HEAD
             this.button1.Location = new System.Drawing.Point(65, 372);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(177, 55);
             this.button1.TabIndex = 0;
             this.button1.Text = "Generate Pre-Clearance Output";
+=======
+            this.button1.Location = new System.Drawing.Point(109, 315);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 81);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Generate Pre-Clearance Files";
+>>>>>>> origin/Vic
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -71,7 +80,11 @@ namespace WindowsFormsApplication1
             // 
             // button2
             // 
+<<<<<<< HEAD
             this.button2.Location = new System.Drawing.Point(230, 82);
+=======
+            this.button2.Location = new System.Drawing.Point(230, 73);
+>>>>>>> origin/Vic
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(82, 25);
@@ -88,7 +101,11 @@ namespace WindowsFormsApplication1
             // label2
             // 
             this.label2.AutoSize = true;
+<<<<<<< HEAD
             this.label2.Location = new System.Drawing.Point(129, 458);
+=======
+            this.label2.Location = new System.Drawing.Point(129, 412);
+>>>>>>> origin/Vic
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(283, 13);
@@ -98,7 +115,11 @@ namespace WindowsFormsApplication1
             // 
             // textBox1
             // 
+<<<<<<< HEAD
             this.textBox1.Location = new System.Drawing.Point(135, 111);
+=======
+            this.textBox1.Location = new System.Drawing.Point(135, 101);
+>>>>>>> origin/Vic
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(260, 20);
@@ -107,7 +128,11 @@ namespace WindowsFormsApplication1
             // 
             // button3
             // 
+<<<<<<< HEAD
             this.button3.Location = new System.Drawing.Point(222, 186);
+=======
+            this.button3.Location = new System.Drawing.Point(230, 156);
+>>>>>>> origin/Vic
             this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(82, 25);
@@ -119,7 +144,11 @@ namespace WindowsFormsApplication1
             // label3
             // 
             this.label3.AutoSize = true;
+<<<<<<< HEAD
             this.label3.Location = new System.Drawing.Point(148, 158);
+=======
+            this.label3.Location = new System.Drawing.Point(153, 134);
+>>>>>>> origin/Vic
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(232, 13);
@@ -129,7 +158,11 @@ namespace WindowsFormsApplication1
             // 
             // textBox2
             // 
+<<<<<<< HEAD
             this.textBox2.Location = new System.Drawing.Point(131, 215);
+=======
+            this.textBox2.Location = new System.Drawing.Point(132, 194);
+>>>>>>> origin/Vic
             this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(264, 20);
@@ -150,7 +183,11 @@ namespace WindowsFormsApplication1
             // 
             // button4
             // 
+<<<<<<< HEAD
             this.button4.Location = new System.Drawing.Point(222, 279);
+=======
+            this.button4.Location = new System.Drawing.Point(223, 241);
+>>>>>>> origin/Vic
             this.button4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(90, 30);
@@ -166,7 +203,11 @@ namespace WindowsFormsApplication1
             // label5
             // 
             this.label5.AutoSize = true;
+<<<<<<< HEAD
             this.label5.Location = new System.Drawing.Point(171, 253);
+=======
+            this.label5.Location = new System.Drawing.Point(173, 226);
+>>>>>>> origin/Vic
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(192, 13);
@@ -175,7 +216,11 @@ namespace WindowsFormsApplication1
             // 
             // textBox3
             // 
+<<<<<<< HEAD
             this.textBox3.Location = new System.Drawing.Point(131, 313);
+=======
+            this.textBox3.Location = new System.Drawing.Point(132, 275);
+>>>>>>> origin/Vic
             this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(264, 20);
@@ -184,11 +229,19 @@ namespace WindowsFormsApplication1
             // 
             // button5
             // 
+<<<<<<< HEAD
             this.button5.Location = new System.Drawing.Point(288, 372);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(172, 55);
             this.button5.TabIndex = 13;
             this.button5.Text = "Generate Full Clearance Output";
+=======
+            this.button5.Location = new System.Drawing.Point(282, 315);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(130, 81);
+            this.button5.TabIndex = 0;
+            this.button5.Text = "\r\nGenerate Full Clearance Files";
+>>>>>>> origin/Vic
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 

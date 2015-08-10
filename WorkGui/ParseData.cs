@@ -19,13 +19,14 @@ namespace LibraryProject
     class ParseData
     {
         private static int n = 4;
-        public static void setTotalCredComplete(List<Student> stud)
+        public static void setTotalCredComplete(List<Student> stud, RequiredClasses rc)
         {
             for (int i = 0; i < stud.Count; i++)
             {
+                double gradedInProg = 0.0;
                 List<Semester> semList = stud[i].getStudentSemesters();
                 int count = 0;//the count for total credits completed
-                int count1 = 0;//the count for credits in progess
+                double count1 = 0;//the count for credits in progess
                 int count2 = 0;//the count for graded credits
                 for (int j = 0; j < semList.Count; j++)
                 {
@@ -49,6 +50,20 @@ namespace LibraryProject
                     else
                     {
                         count1 += semList[j].getCreditHours();//indicates any other type of credit that doesnt have a grade and isnt in progress
+                        gradedInProg = count1;
+                        
+                        for (int n = 0; n < semList[j].getCourseList().Count; n++)
+                        {
+                            for (int m = 0; m < rc.getnonLetterGraded().Count; m++)
+                            {
+                                string studName = semList[j].getCourseList()[n].getCourseNum();
+                                string rcName = rc.getnonLetterGraded()[m];
+                                if (rcName.Contains(studName))
+                                {
+                                    gradedInProg = gradedInProg - semList[j].getCourseList()[n].getCreds();
+                                }
+                            }
+                        }
                     }
                     if (semList[j].getEUnits() == 0)//indicates an in progress writing class
                     {
@@ -58,6 +73,7 @@ namespace LibraryProject
                 stud[i].setGradedCreds(count2);//sets all the respective credits to the student
                 stud[i].setCredsInProgress(count1);
                 stud[i].setTotCred(count);
+                stud[i].setgradedcredsInProgess(gradedInProg);
             }
         }
         public void setGradedCreds(Student stud)//don't know if this is being used but it seems to just set the graded credits, seems to repeat the code above
@@ -109,11 +125,11 @@ namespace LibraryProject
                     }
                     for (int x = i; x < i + 17; x++)//sets the skills and writing requirements if they are found in the legend
                     {
-                        if (text[x].Contains("SKILLS REQUIREMENT MET"))
+                        if (text[x].Contains("SKILLS REQUIREMENT MET") || (text[x].Contains("SKILLS")))
                         {
                             stud.setSkillSat("SATISFIED");
                         }
-                        if (text[x].Contains("WRITING REQUIREMENT MET"))
+                        if (text[x].Contains("WRITING REQUIREMENT MET") || (text[x].Contains("WRITING")))
                         {
                             stud.setWritSat("SATISFIED");
                         }
@@ -617,7 +633,7 @@ namespace LibraryProject
                         worksheet.Cells[count, n + 5].Value = "OFF TRACK";
                     }
                     worksheet.Cells[count, n + 6].Value = student.getGradedCreds();
-                    worksheet.Cells[count, n + 7].Value = student.getCredsInProgress();
+                    worksheet.Cells[count, n + 7].Value = student.getgradedcredsInProgress();
                     worksheet.Cells[count, n + 8].Value = student.getGradedCreds() + student.getCredsInProgress();
                     worksheet.Cells[count, n + 9].Value = student.getSkillSat();
                     if (student.getSkillSat().Contains("OFF TRACK"))
@@ -708,12 +724,12 @@ namespace LibraryProject
                     double lawCreds = 0.0;
                     foreach (Semester semester in student.getStudentSemesters())
                     {
-                       // if (!semester.getInProg())
+                        // if (!semester.getInProg())
                         //{
-                            foreach (Course course in semester.getCourseList())
-                            {
-                                lawCreds += course.getCreds();
-                            }
+                        foreach (Course course in semester.getCourseList())
+                        {
+                            lawCreds += course.getCreds();
+                        }
                         //}
                         for (int h = 0; h < student.getreqcourses().Length; h++)
                         {
