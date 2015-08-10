@@ -21,10 +21,24 @@ namespace LibraryProject
         static List<Student> Cleared = new List<Student>();
         static List<Student> New = new List<Student>();
         static List<Student> Pending = new List<Student>();
+        public static List<Student> getCleared()
+        {
+            return Cleared;
+        }
+        public static List<Student> getNew()
+        {
+            return New;
+        }
+        public static List<Student> getPending()
+        {
+            return Pending;
+        }
 
         class ParseData
         {
+
             private static int n = 4;
+            
             public static void setTotalCredComplete(List<Student> stud, RequiredClasses rc)
             {
                 for (int i = 0; i < stud.Count; i++)

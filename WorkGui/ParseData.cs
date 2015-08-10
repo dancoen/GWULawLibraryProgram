@@ -76,24 +76,7 @@ namespace LibraryProject
                 stud[i].setgradedcredsInProgess(gradedInProg);
             }
         }
-        public void setGradedCreds(Student stud)//don't know if this is being used but it seems to just set the graded credits, seems to repeat the code above
-        //but just for graded credits
-        {
-            List<Semester> semList = stud.getStudentSemesters();
-            for (int i = 0; i < semList.Count; i++)
-            {
-                if (semList[i].getInProg())
-                {
-                    double sum = 0.0;
-                    List<Course> courseList = semList[i].getCourseList();
-                    for (int j = 0; j < courseList.Count; j++)
-                    {
-                        sum += courseList[j].getCreds();
-                    }
-                    stud.addGradedCreds(sum);
-                }
-            }
-        }
+        
         public static List<Student> createStudent(string[] text)
         {
             bool newStudent = true;
