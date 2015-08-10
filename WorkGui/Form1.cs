@@ -164,7 +164,12 @@ namespace WindowsFormsApplication1{
                 return;
             }
             RequiredClasses obj = new RequiredClasses(this.textBox2.Text, this.textBox1.Text);
+<<<<<<< HEAD
             FullClearance.GenFullClearance(obj, folder);
+=======
+            MainClass.startFull(obj, folder);
+            // full clearence file generation
+>>>>>>> origin/Vic
         }
     }
 }
