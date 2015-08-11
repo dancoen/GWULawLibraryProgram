@@ -120,6 +120,5 @@ namespace LibraryProject
             ParseData.GenExcelFull(folder, FullClearance.getNew(), FullClearance.getCleared(), FullClearance.getPending());
             Application.Exit();
         }
-
     }
 }
