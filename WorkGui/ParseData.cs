@@ -805,7 +805,7 @@ namespace LibraryProject
                 }
             }
         }
-        public static void GenExcelFull(String folder, List<Student> New, List<Student> Cleared, List<Student> Pending)
+       public static void GenExcelFull(String folder, List<Student> New, List<Student> Cleared, List<Student> Pending)
         {
             using (var package = new ExcelPackage(new System.IO.FileInfo("FullClearance.xlsx")))
             {
