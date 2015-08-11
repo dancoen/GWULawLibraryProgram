@@ -118,6 +118,7 @@ namespace LibraryProject
             FullClearance.sortStudents(studentList);
             List<Student> Cl = FullClearance.createTrFiles();
             ParseData.GenExcelFull(folder, FullClearance.getNew(), FullClearance.getCleared(), FullClearance.getPending());
+            Application.Exit();
         }
 
     }
