@@ -805,7 +805,7 @@ namespace LibraryProject
                 }
             }
         }
-       public static void GenExcelFull(String folder, List<Student> New, List<Student> Cleared, List<Student> Pending)
+      public static void GenExcelFull(String folder, List<Student> New, List<Student> Cleared, List<Student> Pending)
         {
             using (var package = new ExcelPackage(new System.IO.FileInfo("FullClearance.xlsx")))
             {
@@ -943,6 +943,7 @@ namespace LibraryProject
                     {
                         package.Workbook.Worksheets["NEW"].Cells[countNew, 9].Value = "No";
                     }
+                    countNew++;
                 }
                 int countPending = 2;
                 foreach (Student student in Pending)
@@ -985,6 +986,7 @@ namespace LibraryProject
                     {
                         package.Workbook.Worksheets["PENDING"].Cells[countPending, 9].Value = "No";
                     }
+                    countPending++;
                 }
                 package.Workbook.Worksheets["CLEARED"].Cells.AutoFitColumns();
                 package.Workbook.Worksheets["NEW"].Cells.AutoFitColumns();
