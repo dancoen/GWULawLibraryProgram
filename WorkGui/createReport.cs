@@ -121,7 +121,7 @@ namespace LibraryProject {
                             List<Course> skills = x.getAllSkills();
                             foreach (Course skill in skills)
                             {
-                                if (skill.getStatus().Equals("IN PROGRESS"))
+                                if (skill.getGrade().Equals("In Progress"))
                                 {
                                     file.WriteLine('\n' + "SKILLS REQUIREMENT" + '\t' + "ON TRACK" + " <= " + "course " + skill.getCourseNum() + " in prog.");
                                     break;
@@ -145,7 +145,7 @@ namespace LibraryProject {
                             List<Course> skills = x.getAllWriting();
                             foreach (Course skill in skills)
                             {
-                                if (skill.getStatus().Equals("IN PROGRESS"))
+                                if (skill.getGrade().Equals("In Progress"))
                                 {
                                     file.WriteLine('\n' + "WRITING REQUIREMENT" + '\t' + "ON TRACK" + " <= " + "course " + skill.getCourseNum() + " in prog.");
                                     break;
