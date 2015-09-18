@@ -544,12 +544,30 @@ namespace LibraryProject
             }
             return listStudent;
         }
+        public static void adjusttrack(List<Student> studs) {
+            foreach (Student student in studs)
+            {
+                if (!(student.getGradedCreds() >= 67) || !(student.getCredsInProgress() + student.getGradedCreds() >= 67))
+                {
+                    student.setTrack();
+                }
+                if (student.getSkillSat().Contains("OFF TRACK") || student.getWritSat().Contains("OFF TRACK"))
+                {
+                    student.setTrack();
+                }
+                if (student.getGPA() < 1.67)
+                {
+                    student.setTrack();
+                }
+            }
+        }
         public static void sortStudents(List<Student> studs)
         {
             string path = Directory.GetCurrentDirectory() + "/ClearedGWIDS.txt";
             if (!File.Exists(path)) {           
                 File.Create(path);
             }
+            adjusttrack(studs);
             string[] ctext = System.IO.File.ReadAllLines(@path);
             foreach (Student s in studs)
             {
@@ -559,25 +577,23 @@ namespace LibraryProject
                 }
                 else if (s.getTrack().Contains("ON TRACK"))
                 {
+                    Cleared.Add(s);
+                    bool alreadycleared = false;
                     for (int i = 0; i < ctext.Length; i++)
                     {
                         if (ctext[i].Contains(s.getGWid()))
                         {
-                            Cleared.Add(s);
+                            alreadycleared = true;
                             break;
                         }
                     }
-                    if (s.getWritSat().Equals("SATISFIED") && s.getSkillSat().Equals("SATISFIED") && s.getTotCred() >= 84)
+                    if (alreadycleared == false)
                     {
                         New.Add(s);
                         using (StreamWriter text = File.AppendText(path))
                         {
                             text.WriteLine("/n + " + s.getGWid());
                         }
-                    }
-                    else
-                    {
-                        Pending.Add(s);
                     }
                 }
             }
