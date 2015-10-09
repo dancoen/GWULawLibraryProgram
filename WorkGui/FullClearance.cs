@@ -579,6 +579,7 @@ namespace LibraryProject
         }
         public static void sortStudents(List<Student> studs)
         {
+            adjustTrack(studs);
             string path = Directory.GetCurrentDirectory() + "/ClearedGWIDS.txt";
             if (!File.Exists(path)) {           
                 File.Create(path);
