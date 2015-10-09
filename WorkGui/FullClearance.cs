@@ -579,12 +579,11 @@ namespace LibraryProject
         }
         public static void sortStudents(List<Student> studs)
         {
-            adjustTrack(studs);
             string path = Directory.GetCurrentDirectory() + "/ClearedGWIDS.txt";
             if (!File.Exists(path)) {           
                 File.Create(path);
             }
-            adjusttrack(studs);
+            adjustTrack(studs);
             string[] ctext = System.IO.File.ReadAllLines(@path);
             foreach (Student s in studs)
             {
