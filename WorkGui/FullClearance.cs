@@ -559,6 +559,22 @@ namespace LibraryProject
                 {
                     student.setTrack();
                 }
+                int count2 = 0;
+                if (student.getPartTime() == true)
+                {
+                    if (student.getEnrollUnits() >= 5.9)
+                    {
+                        count2++;
+                    }
+                }
+                else if (student.getEnrollUnits() >= 6.0)
+                {
+                    count2++;
+                }
+                if (count2 == 0)
+                {
+                    student.setTrack();
+                }
             }
         }
         public static void sortStudents(List<Student> studs)
