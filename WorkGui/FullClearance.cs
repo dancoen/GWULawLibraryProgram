@@ -547,7 +547,7 @@ namespace LibraryProject
         public static void adjusttrack(List<Student> studs) {
             foreach (Student student in studs)
             {
-                if (!(student.getGradedCreds() >= 67) || !(student.getCredsInProgress() + student.getGradedCreds() >= 67))
+                if (!(student.getCredsInProgress() + student.getGradedCreds() >= 67))
                 {
                     student.setTrack();
                 }
