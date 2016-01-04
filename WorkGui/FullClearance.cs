@@ -575,6 +575,10 @@ namespace LibraryProject
                 {
                     student.setTrack();
                 }
+                if (student.getTotCred() + student.getCredsInProgress() < 84)
+                {
+                    student.setTrack();
+                }
             }
         }
         public static void sortStudents(List<Student> studs)
