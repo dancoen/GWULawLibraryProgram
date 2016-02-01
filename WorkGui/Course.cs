@@ -15,6 +15,7 @@ namespace LibraryProject
         private String grade = "In Progress";
         private String requirement = ""; //SKILL OR WRITING or REQUIRED
         private String onofftrack = "OFF TRACK"; //set as "OFFTRACK" or as "IN PROGRESS" if it's currently being taken
+        public bool nonLetterGraded = false;
         public Course() { }
         public Course(String courseNum1, String courseName1, String grade1)
         {
@@ -36,5 +37,7 @@ namespace LibraryProject
         public String getReq() { return requirement; }
         public void setTrack(String pf) { onofftrack = pf; }
         public String getTrack() { return onofftrack; }
+        public void setnonLetterGraded(bool status) { nonLetterGraded = status; }
+        public bool getnonLetterGraded() { return nonLetterGraded; }
     }
 }

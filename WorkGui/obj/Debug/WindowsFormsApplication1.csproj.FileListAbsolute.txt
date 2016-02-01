@@ -62,14 +62,35 @@ C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsForm
 C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
 C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe
 C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.pdb
-C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\EPPlus.xml
 C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
 C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Form1.resources
 C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
-C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
-C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
-C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
+<<<<<<< HEAD
+C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Conor\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\Conor\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\Conor\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
+C:\Users\Conor\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe
+C:\Users\Conor\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.pdb
+C:\Users\Conor\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+C:\Users\Conor\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Form1.resources
+C:\Users\Conor\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+C:\Users\Conor\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 D:\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
 D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
 D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
+=======
+C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
+>>>>>>> refs/remotes/origin/master
+>>>>>>> refs/remotes/origin/JawnTrawnPhase1RemixPartTwoSuperSlam

@@ -18,13 +18,14 @@ namespace LibraryProject
             this.courseList = System.IO.File.ReadAllLines(@coursepath);
             this.lines = System.IO.File.ReadAllLines(@studentpath);
         }
-        
         public  string coursepath;
-        public string studentpath; 
+        public  string studentpath; 
         public  string[] courseList;  
-        private  List<string> required = new List<string>(); //arraylist of required course names
+        private List<string> required = new List<string>(); //arraylist of required course names
         public  List<string> writing = new List<string>();   //arraylist of required writing course names
         public  List<string> skills = new List<string>();    //arraylist of required skills course names
+        public  List<string> nonLetterGraded = new List<string>();
+        public List<string> getnonLetterGraded() { return nonLetterGraded; }
         public  List<Course> blank = new List<Course>();     //likely not needed
         public  Course[] actual;                             //arraylist of required Course objects that have been set with default values,--
                                                              //---so same order every time, only need to change appropriate data within for each student. This will happen later on.
@@ -54,7 +55,11 @@ namespace LibraryProject
             int x = splitCourseList(1, required);   //parses course list into the proper array, returns the index where required classes stop
             int y = splitCourseList(x, writing);    //parses course list into the proper array, returns idx where writing stops
             int z = splitCourseList(y, skills);     //parses course list into the proper array, returns idx where skills stop
-            num = required.Count;
+            int last = splitCourseList(z, nonLetterGraded); //parses course list into the proper array, returns idx where nonlettergraded stops
+            for (int i = 0; i < nonLetterGraded.Count; i++) {
+                nonLetterGraded[i] = nonLetterGraded[i].Substring(0, 4);
+            }
+                num = required.Count;
             setActual();                            //sets default required course array
         }
 
@@ -66,20 +71,11 @@ namespace LibraryProject
             return required;
         }
 
-        /*public  Course setAsDefault(string name) //likely not actually needed
-        {
-            Course blank = new Course();
-            blank.setCourseName(name);
-            blank.setCourseNum(name.Substring(0, 4));
-            blank.setStatus("OFF TRACK");
-            blank.setGrade("not compl. or in prog.");
-            return blank;
-        }*/
         public  void setActual()                        
         {
             Course[] A = new Course[required.Count];    //initialize Course array with same size as #required courses
             int i = 0;
-            foreach (string x in required) //course name
+            foreach (string x in required)              //course name
             {
                 A[i] = new Course(x.Substring(0, 4), x, "not compl. or in prog.");  //Initializes Course object with the course number, name, and default grade
                 A[i].setStatus("OFF TRACK");                                        //Sets course status as Off Track

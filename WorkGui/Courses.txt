@@ -1,0 +1,84 @@
+COURSES: REQUIRED
+6202 Contracts I 
+6203 Contracts II
+6206 Torts
+6208 Property
+6210 Criminal Law
+6212 Civil Procedure I
+6213 Civil Procedure II
+6214 Constitutional Law I
+6216 Legal Res. & Writing 
+6217 Intro. to Advocacy
+6218 or 6343 Prof. Resp.
+
+COURSES: UPPER LEVEL WRITING
+6656 Independent Legal Writing (2 or more credits)
+6658 Law Review
+6659 International Law Review
+6660 Federal Circuit Bar Journal
+6661 Public Contract Law Journal
+6662 Intellectual Property Law Journal
+6663 International Law in Domestic Courts Journal
+6664 Journal of Energy and the Environment
+
+COURSES: SKILLS REQUIREMENT
+6296 Business Planning
+6346 Estate Planning
+6372 Drugs and the Law
+6376 Prisoner's Project
+6418 Legislative Analysis and Drafting
+6458 Environmental Negotiations
+6465 Environmental Crimes Project
+6467 Environmental Legislation Project
+6478 Licensing of Intellectual Property Rights
+6505 Government Contracts Advocacy
+6567 Human Rights Advocacy
+6620 Consumer Mediation Clinic
+6621 Small Business Clinic
+6622 Public Justice Advocacy Clinic
+6623 Neighborhood Law and Policy
+6624 Civil Litigation Clinic
+6625 Federal, Criminal, and Appellate Court
+6626 Vaccine Injury Clinic
+6627 Environmental Law Clinic
+6630 Immigration Clinic
+6631 Health Rights Law Clinic (H,P,LP,NC)
+6633 International Human Rights Clinic 
+6634 Law Students in Court
+6635 Disabled People and the Law 
+6637 Legal Activism
+6640 Trial Advocacy
+6643 Pre-Trial Advocacy
+6646 Mediation
+6647 Alternative Dispute Resolution
+6648 Negotiations
+6650 Client Interviewing and Counseling 
+6652 Legal Drafting
+6653 Advanced Appellate Advocacy
+6674 Domestic Violence Project
+
+COURSES: NON-LETTER GRADED
+6376 Prisoner's Project
+6465 Environmental Crimes Project
+6467 Environmental Legislation Project (H,P,LP,NC)
+6620 Consumer Mediation Clinic
+6621 Small Business Clinic (H,P,LP, NC)
+6631 Health Rights Law Clinic (H,P,LP,NC)
+6634 Law Students in Court
+6635 Disabled People and the Law
+6637 Legal Activism
+6638 Intensive Clinical Placement
+6642 Alternative Dispute Resolution
+6644 Moot Court
+6645 Mock Trial
+6658 Law Review
+6659 International Law Review
+6660 Federal Circuit Bar Journal
+6661 Public Contract Law Journal
+6662 Intellectual Property Law Journal
+6663 International Law in Domestic Courts Journal
+6664 Journal of Energy and the Environment
+6665 Upper Level Writing 
+6666 Research and Writing Fellow
+6668 Outside Placement
+
