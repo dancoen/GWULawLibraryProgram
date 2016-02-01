@@ -68,52 +68,52 @@ namespace LibraryProject
             }
             setTotalEU(stud);
         }
-        public static void Start(RequiredClasses Obj, String folder)
+        public static void Start(RequiredClasses requiredCourses, String folder)
         {
-            Obj.splitRequiredClasses();
-            string[] lines = System.IO.File.ReadAllLines(@Obj.getStudentPath()); //use studentPathway
+            requiredCourses.splitRequiredClasses();
+            string[] lines = System.IO.File.ReadAllLines(@requiredCourses.getStudentPath()); //use studentPathway
             ArrayList newDoc = LineSplit.splitLine(lines);
             string[] oneColumn = (string[])newDoc.ToArray(typeof(string));
             List<Student> studentList = ParseData.createStudent(oneColumn);
             modifyEU(studentList); //fixes the in progress semester case
             ParseData.partTime(studentList);
-            ParseData.setTotalCredComplete(studentList, Obj);
-            foreach (Course x in Obj.blank)
+            ParseData.setTotalCredComplete(studentList, requiredCourses);
+            foreach (Course course in requiredCourses.blank)
             {
-                Console.WriteLine(x.getCourseName());
+                Console.WriteLine(course.getCourseName());
             }
-            foreach (Student x in studentList)
+            foreach (Student student in studentList)
             {
-                requiredCourseMethods.checkRequiredCourses(x, Obj);
-                requiredCourseMethods.checkSkills(x, Obj);
-                requiredCourseMethods.checkWriting(x, Obj);
+                requiredCourseMethods.checkRequiredCourses(student, requiredCourses);
+                requiredCourseMethods.checkSkills(student, requiredCourses);
+                requiredCourseMethods.checkWriting(student, requiredCourses);
             }
-            ParseData.GenExcel(studentList, Obj, folder);
+            ParseData.GenExcel(studentList, requiredCourses, folder);
             //string currentDir = Form1.getFolder();
-            createTextDoc.createText(folder, studentList, Obj);
+            createTextDoc.createText(folder, studentList, requiredCourses);
             Application.Exit();
         }
 
-        public static void startFull(RequiredClasses Obj, String folder)
+        public static void startFull(RequiredClasses requiredCourses, String folder)
         {
-            Obj.splitRequiredClasses();
-            string[] lines = System.IO.File.ReadAllLines(@Obj.getStudentPath()); //use studentPathway
+            requiredCourses.splitRequiredClasses();
+            string[] lines = System.IO.File.ReadAllLines(@requiredCourses.getStudentPath()); //use studentPathway
             ArrayList newDoc = LineSplit.splitLine(lines);
             string[] oneColumn = (string[])newDoc.ToArray(typeof(string));
             List<Student> studentList = FullClearance.createStudent(oneColumn);
             modifyEU(studentList); //fixes the in progress semester case
 
             ParseData.partTime(studentList);
-            ParseData.setTotalCredComplete(studentList, Obj);
-            foreach (Course x in Obj.blank)
+            ParseData.setTotalCredComplete(studentList, requiredCourses);
+            foreach (Course course in requiredCourses.blank)
             {
-                Console.WriteLine(x.getCourseName());
+                Console.WriteLine(course.getCourseName());
             }
-            foreach (Student x in studentList)
+            foreach (Student student in studentList)
             {
-                requiredCourseMethods.checkRequiredCourses(x, Obj);
-                requiredCourseMethods.checkSkills(x, Obj);
-                requiredCourseMethods.checkWriting(x, Obj);
+                requiredCourseMethods.checkRequiredCourses(student, requiredCourses);
+                requiredCourseMethods.checkSkills(student, requiredCourses);
+                requiredCourseMethods.checkWriting(student, requiredCourses);
             }
             FullClearance.sortStudents(studentList);
             List<Student> Cl = FullClearance.createTrFiles();
