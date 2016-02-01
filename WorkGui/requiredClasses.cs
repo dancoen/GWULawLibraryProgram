@@ -204,10 +204,10 @@ namespace LibraryProject
         public static void checkSkills(Student student, RequiredClasses Object) //This method checks and sets each student's Skill courses (if any) with the correct information
                                                                                 //always use the same requiredClasses object when calling these methods
         {
-            List<Semester> semest = student.getStudentSemesters();
+            /*List<Semester> semest = student.getStudentSemesters();
             for (int i = 0; i < semest.Count; i++)
             {
-                if (semest[i].getInProg() && !student.getSkillSat().Contains("SATISFIED")) {  //if the stud's writing req hasn't been satisfied, check for Skill courses in progress
+                //if (semest[i].getInProg() && !student.getSkillSat().Contains("SATISFIED")) {  //if the stud's writing req hasn't been satisfied, check for Skill courses in progress
                                                                                               //if it has, don't need to go through this process, hence the '!'
                     for (int j = 0; j < semest[i].getCourseList().Count; j++)
                     {
@@ -222,8 +222,38 @@ namespace LibraryProject
                             }
                         }
                     }
+                //}
+            }
+             * */
+            double completedSkills = 0.0;
+            double inprogSkills = 0.0;
+
+            List<Semester> semest = student.getStudentSemesters();
+            for (int i = 0; i < semest.Count; i++)
+            {
+                //if (semest[i].getInProg() && !student.getSkillSat().Contains("SATISFIED")) {  //if the stud's writing req hasn't been satisfied, check for Skill courses in progress
+                //if it has, don't need to go through this process, hence the '!'
+                for (int j = 0; j < semest[i].getCourseList().Count; j++)
+                {
+                    List<Course> temp = semest[i].getCourseList();
+                    for (int k = 0; k < Object.skills.Count; k++)
+                    {
+                        if (Object.skills[k].Contains(temp[j].getCourseNum()))  //if each name in the writing arraylist(string) contains this requirement,
+                        {
+                            if (semest[i].getInProg())
+                            {
+                                inprogSkills += temp[j].getCreds();
+                            }
+                            else { completedSkills += temp[j].getCreds(); }
+                            temp[j].setStatus("ON TRACK"); 
+                            student.addSkills(temp[j]);
+                        }
+
+                    }
                 }
             }
+            if (completedSkills >= 6.0) { student.setSkillSat("SATISFIED"); }
+            else if (completedSkills + inprogSkills >= 6.0) { student.setSkillSat("ON TRACK"); }
         }
     }
 }
