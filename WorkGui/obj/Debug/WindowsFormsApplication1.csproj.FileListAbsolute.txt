@@ -93,3 +93,4 @@ C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFor
 C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
 >>>>>>> refs/remotes/origin/master
+>>>>>>> refs/remotes/origin/JawnTrawnPhase1RemixPartTwoSuperSlam
