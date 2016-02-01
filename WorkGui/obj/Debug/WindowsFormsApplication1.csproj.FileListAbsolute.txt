@@ -66,6 +66,7 @@ C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsForm
 C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Form1.resources
 C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
 C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+<<<<<<< HEAD
 C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
 C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\Victoria\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
@@ -87,3 +88,8 @@ C:\Users\Conor\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFo
 D:\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
 D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
 D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
+=======
+C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
+C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
+C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
+>>>>>>> refs/remotes/origin/master
