@@ -522,10 +522,10 @@ namespace LibraryProject
                     }
                     for (int x = i; x < i + 17; x++)//sets the skills and writing requirements if they are found in the legend
                     {
-                        if (text[x].Contains("SKILLS REQUIREMENT MET"))
-                        {
-                            stud.setSkillSat("SATISFIED");
-                        }
+                        if (text[x].Contains("SKILLS REQUIREMENT MET"))//this is the portion that needs to be changed
+                        {                                              //we need to parse in the skills and writing req classes
+                            stud.setSkillSat("SATISFIED");             //from the provided text file and then see if the student has taken
+                        }                                              //6 credits of skills/writing courses, if they have, clear them, else don't
                         if (text[x].Contains("WRITING REQUIREMENT MET"))
                         {
                             stud.setWritSat("SATISFIED");
