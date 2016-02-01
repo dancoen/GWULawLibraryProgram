@@ -70,3 +70,6 @@ C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsForm
 C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
 C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
 C:\Users\John\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
+D:\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
+D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
+D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
