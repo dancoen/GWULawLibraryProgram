@@ -24,8 +24,9 @@ namespace LibraryProject
         private List<string> required = new List<string>(); //arraylist of required course names
         public  List<string> writing = new List<string>();   //arraylist of required writing course names
         public  List<string> skills = new List<string>();    //arraylist of required skills course names
+        public  List<double> creditConfigData = new List<double>();
         public  List<string> nonLetterGraded = new List<string>();
-        public List<string> getnonLetterGraded() { return nonLetterGraded; }
+        public  List<string> getnonLetterGraded() { return nonLetterGraded; }
         public  List<Course> blank = new List<Course>();     //likely not needed
         public  Course[] actual;                             //arraylist of required Course objects that have been set with default values,--
                                                              //---so same order every time, only need to change appropriate data within for each student. This will happen later on.
@@ -70,6 +71,50 @@ namespace LibraryProject
         public  List<string> getRequired() {        //returns arraylist of required classes (String)
             return required;
         }
+
+        public void getCreditsFromConfigData(int i)
+        {
+            int firstIndex = courseList[i].IndexOf("(");//gets the first index of where the number we want occurs
+            int secondIndex = courseList[i].IndexOf(")");//gets second index
+            string creditValue = courseList[i].Substring(firstIndex, secondIndex - firstIndex - 1);
+
+            if (creditValue.Equals("#.#"))
+            {
+                creditConfigData.Add(-1);//this indicates the writing field, if its a number other than -1 we know to use a different set of code
+            }                            // is essentially in place in case ABA changes writing requirement like they have for skills
+
+            creditConfigData.Add(Double.Parse(creditValue));//parses the string to the double value and adds it to the global list
+        }
+
+        public int parseCreditConfigData()
+        {
+            
+            for (int i = 0; i < courseList.Count(); i++)
+            {
+                while ((courseList[i].Count() != 0))//equal to zero would indicate line in the course file is empty
+                {
+                    if (courseList[i].Contains("Total"))
+                    {
+                        for (int j = i; j < i + 8; j++)// we know there are 8 credit requirements, so once we find the first one
+                        {                              //we can just parse through the next 8 lines
+                                getCreditsFromConfigData(j);
+                        }
+                    }else if (courseList[i].Contains("---"))//indicates the first dashed line was found
+                    {
+                        for (int j = i+1; j < courseList.Count(); j++)//iterates through the comment section 
+                        {
+                            if (courseList[j].Contains("---"))
+                            {
+                                return j + 1;
+                            }
+                        }
+                    }
+                    i++;
+                }
+            }
+            return -1;
+        }
+        
 
         public  void setActual()                        
         {
