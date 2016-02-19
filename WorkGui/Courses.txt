@@ -1,3 +1,20 @@
+Total Credits (84.0)
+Graded Credits (67.0)
+Transfer Student Graded Credits (48.0)
+GPA Requirement (1.67)
+Skill Requirement (6.0)
+//Writing Requirement (#.#)
+Full Time Enrollment Units (6.0)
+Transfer Student Enrollment Units (5.9)
+--------------------------------------------------------------------------
+************************DON'T DELETE DASHED LINES*************************
+**Edit Values Only as Desired, don't delete quotes, leave decimal
+**Writing Requirements should only be altered from "#.#" to another
+  value when writing track is removed from legend (ABA changes regulation)
+**Any additional comments can be added between these two lines
+--------------------------------------------------------------------------
+
+
 COURSES: REQUIRED
 6202 Contracts I 
 6203 Contracts II
