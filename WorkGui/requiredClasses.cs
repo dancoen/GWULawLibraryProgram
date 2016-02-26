@@ -49,6 +49,9 @@ namespace LibraryProject
         {
             studentpath = path;
         }
+        //      /*end of credit stats*/
+
+
 
         public  void splitRequiredClasses()         //splits the text file into required, writing, and skills
         {
