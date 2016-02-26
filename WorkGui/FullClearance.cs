@@ -581,9 +581,9 @@ namespace LibraryProject
                 }
             }
         }
-        public static void sortStudents(List<Student> studs)
+        public static void sortStudents(List<Student> studs, string folder)
         {
-            string path = Directory.GetCurrentDirectory() + "/ClearedGWIDS.txt";
+            string path = folder + "/ClearedGWIDS.txt";
             if (!File.Exists(path)) {           
                 File.Create(path);
             }
@@ -618,9 +618,9 @@ namespace LibraryProject
                 }
             }
         }
-        public static List<Student> createTrFiles()
+        public static List<Student> createTrFiles(string path)
         {
-            string cleared = Directory.GetCurrentDirectory() + "/CLEARED.txt";
+            string cleared = path + "/CLEARED.txt";
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(cleared, false))
             {
                 foreach (Student s in Cleared)
@@ -635,7 +635,7 @@ namespace LibraryProject
                 }
             }
             System.Diagnostics.Process.Start(@cleared);
-            string newlycl = Directory.GetCurrentDirectory() + "/NEW.txt";
+            string newlycl = path + "/NEW.txt";
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(newlycl, false))
             {
                 foreach (Student s in New)
@@ -667,8 +667,8 @@ namespace LibraryProject
             System.Diagnostics.Process.Start(@pending);
             return Cleared;
         }
-        public void GenFullClearance(List<Student> clearedStuds) { 
-            string path = Directory.GetCurrentDirectory() + "ClearedStuds.txt";
+        public void GenFullClearance(List<Student> clearedStuds, string folder) { 
+            string path = folder + "ClearedStuds.txt";
             if (!File.Exists(path))
             {
                 using (System.IO.StreamWriter file = new System.IO.StreamWriter(@path, true))

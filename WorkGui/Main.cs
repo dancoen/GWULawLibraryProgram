@@ -115,8 +115,8 @@ namespace LibraryProject
                 requiredCourseMethods.checkSkills(student, requiredCourses);
                 requiredCourseMethods.checkWriting(student, requiredCourses);
             }
-            FullClearance.sortStudents(studentList);
-            List<Student> Cl = FullClearance.createTrFiles();
+            FullClearance.sortStudents(studentList,folder);
+            List<Student> Cl = FullClearance.createTrFiles(folder);
             ParseData.GenExcelFull(folder, FullClearance.getNew(), FullClearance.getCleared(), FullClearance.getPending());
             Application.Exit();
         }
