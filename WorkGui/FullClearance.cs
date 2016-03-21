@@ -551,7 +551,7 @@ namespace LibraryProject
                 {
                     student.setTrack();
                 }
-                if (student.getSkillSat().Contains("OFF TRACK") || student.getWritSat().Contains("OFF TRACK"))
+                if (!(student.getSkillSat().Contains("SATISFIED") && student.getWritSat().Contains("SATISFIED")))
                 {
                     student.setTrack();
                 }

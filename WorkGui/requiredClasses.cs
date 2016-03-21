@@ -17,6 +17,7 @@ namespace LibraryProject
             studentpath = sp;
             this.courseList = System.IO.File.ReadAllLines(@coursepath);
             this.lines = System.IO.File.ReadAllLines(@studentpath);
+            parseCreditConfigData();
         }
         public  string coursepath;
         public  string studentpath; 
@@ -54,8 +55,9 @@ namespace LibraryProject
 
 
 
-        public  void splitRequiredClasses()         //splits the text file into required, writing, and skills
+        public  void splitRequiredClasses()         //splits the text file into required, writing, and 
         {
+            parseCreditConfigData();
             int x = splitCourseList(1, required);   //parses course list into the proper array, returns the index where required classes stop
             int y = splitCourseList(x, writing);    //parses course list into the proper array, returns idx where writing stops
             int z = splitCourseList(y, skills);     //parses course list into the proper array, returns idx where skills stop
@@ -74,6 +76,9 @@ namespace LibraryProject
         public  List<string> getRequired() {        //returns arraylist of required classes (String)
             return required;
         }
+        public void setCreditConfigData(List<double> datalist) {
+            this.creditConfigData = datalist;
+        }
 
         public void getCreditsFromConfigData(int i)
         {
@@ -85,11 +90,11 @@ namespace LibraryProject
             {
                 creditConfigData.Add(-1);//this indicates the writing field, if its a number other than -1 we know to use a different set of code
             }                            // is essentially in place in case ABA changes writing requirement like they have for skills
-
+            Console.WriteLine("number is " + Double.Parse(creditValue));
             creditConfigData.Add(Double.Parse(creditValue));//parses the string to the double value and adds it to the global list
         }
 
-        public int parseCreditConfigData()
+        public List<double> parseCreditConfigData()
         {
             
             for (int i = 0; i < courseList.Count(); i++)
@@ -108,16 +113,15 @@ namespace LibraryProject
                         {
                             if (courseList[j].Contains("---"))
                             {
-                                return j + 1;
+                                return creditConfigData;
                             }
                         }
                     }
                     i++;
                 }
             }
-            return -1;
+            return creditConfigData;
         }
-        
 
         public  void setActual()                        
         {
@@ -301,8 +305,9 @@ namespace LibraryProject
                 }
 
             }
-            if (completedSkills >= 6.0) { student.setSkillSat("SATISFIED"); }
-            else if (completedSkills + inprogSkills >= 6.0) { student.setSkillSat("ON TRACK"); }
+            //Object.setCreditConfigData(Object.parseCreditConfigData());
+            if (completedSkills >= 6) { student.setSkillSat("SATISFIED"); }   //change to implicit credit count
+            else if (completedSkills + inprogSkills >= 6) { student.setSkillSat("ON TRACK"); }
         }
     }
 }
