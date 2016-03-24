@@ -86,7 +86,7 @@ namespace LibraryProject
         { 
             int firstIndex = courseList[i].IndexOf("(");//gets the first index of where the number we want occurs
             int secondIndex = courseList[i].IndexOf(")");//gets second index
-            string creditValue = courseList[i].Substring(firstIndex, secondIndex - firstIndex - 1);
+            string creditValue = courseList[i].Substring(firstIndex+1, secondIndex - firstIndex -1);
 
             if (creditValue.Equals("#.#"))
             {
@@ -310,7 +310,7 @@ namespace LibraryProject
 
             }
             //Object.setCreditConfigData(Object.parseCreditConfigData());
-            if (completedSkills >= 6) { student.setSkillSat("SATISFIED"); }   //change to implicit credit count
+            if (completedSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("SATISFIED"); }   //change to implicit credit count
             else if (completedSkills + inprogSkills >= 6) { student.setSkillSat("ON TRACK"); }
         }
     }
