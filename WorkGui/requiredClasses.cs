@@ -18,6 +18,7 @@ namespace LibraryProject
             this.courseList = System.IO.File.ReadAllLines(@coursepath);
             this.lines = System.IO.File.ReadAllLines(@studentpath);
             parseCreditConfigData();
+            this.setCreditConfigData(parseCreditConfigData());
         }
         public  string coursepath;
         public  string studentpath; 
@@ -90,8 +91,11 @@ namespace LibraryProject
             {
                 creditConfigData.Add(-1);//this indicates the writing field, if its a number other than -1 we know to use a different set of code
             }                            // is essentially in place in case ABA changes writing requirement like they have for skills
-            Console.WriteLine("number is " + Double.Parse(creditValue));
-            creditConfigData.Add(Double.Parse(creditValue));//parses the string to the double value and adds it to the global list
+            else
+            {
+                Console.WriteLine("number is " + Double.Parse(creditValue));
+                creditConfigData.Add(Double.Parse(creditValue));//parses the string to the double value and adds it to the global list
+            }
         }
 
         public List<double> parseCreditConfigData()
