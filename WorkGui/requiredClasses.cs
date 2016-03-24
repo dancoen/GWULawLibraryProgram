@@ -87,7 +87,7 @@ namespace LibraryProject
         { 
             int firstIndex = courseList[i].IndexOf("(");//gets the first index of where the number we want occurs
             int secondIndex = courseList[i].IndexOf(")");//gets second index
-            string creditValue = courseList[i].Substring(firstIndex, secondIndex - firstIndex - 1);
+            string creditValue = courseList[i].Substring(firstIndex + 1, secondIndex - firstIndex - 1);
 
             if (creditValue.Equals("#.#"))
             {
@@ -95,10 +95,7 @@ namespace LibraryProject
             }                            // is essentially in place in case ABA changes writing requirement like they have for skills
             else
             {
-<<<<<<< HEAD
                 Console.WriteLine("number is " + Double.Parse(creditValue));
-=======
->>>>>>> 22ead779bb114ff45f17b2a32cca6df559bae764
                 creditConfigData.Add(Double.Parse(creditValue));//parses the string to the double value and adds it to the global list
             }
         }
@@ -315,8 +312,8 @@ namespace LibraryProject
 
             }
             //Object.setCreditConfigData(Object.parseCreditConfigData());
-            if (completedSkills >= 6) { student.setSkillSat("SATISFIED"); }   //change to implicit credit count
-            else if (completedSkills + inprogSkills >= 6) { student.setSkillSat("ON TRACK"); }
+            if (completedSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("SATISFIED"); }   //change to implicit credit count
+            else if (completedSkills + inprogSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("ON TRACK"); }
         }
     }
 }
