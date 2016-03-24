@@ -12,6 +12,7 @@ namespace LibraryProject
 { 
     public class RequiredClasses //This class takes inputs of a text document with required classes, skills, and writing. 
     {
+
         public RequiredClasses(string cp, string sp) { //Was made an object in order to be compatible with the GUI; takes the text file paths of the Courselist and the Studentlist docs
             coursepath = cp;
             studentpath = sp;
@@ -20,6 +21,7 @@ namespace LibraryProject
             parseCreditConfigData();
             this.setCreditConfigData(parseCreditConfigData());
         }
+
         public  string coursepath;
         public  string studentpath; 
         public  string[] courseList;  
@@ -82,7 +84,7 @@ namespace LibraryProject
         }
 
         public void getCreditsFromConfigData(int i)
-        {
+        { 
             int firstIndex = courseList[i].IndexOf("(");//gets the first index of where the number we want occurs
             int secondIndex = courseList[i].IndexOf(")");//gets second index
             string creditValue = courseList[i].Substring(firstIndex, secondIndex - firstIndex - 1);
@@ -93,7 +95,10 @@ namespace LibraryProject
             }                            // is essentially in place in case ABA changes writing requirement like they have for skills
             else
             {
+<<<<<<< HEAD
                 Console.WriteLine("number is " + Double.Parse(creditValue));
+=======
+>>>>>>> 22ead779bb114ff45f17b2a32cca6df559bae764
                 creditConfigData.Add(Double.Parse(creditValue));//parses the string to the double value and adds it to the global list
             }
         }
@@ -257,7 +262,7 @@ namespace LibraryProject
             }
         }
 
-        public static void checkSkills(Student student, RequiredClasses Object) //This method checks and sets each student's Skill courses (if any) with the correct information
+        public static void checkSkills(Student student, RequiredClasses reqClasses) //This method checks and sets each student's Skill courses (if any) with the correct information
                                                                                 //always use the same requiredClasses object when calling these methods
         {
             /*List<Semester> semest = student.getStudentSemesters();
@@ -292,9 +297,9 @@ namespace LibraryProject
                 for (int j = 0; j < semest[i].getCourseList().Count; j++)
                 {
                     List<Course> temp = semest[i].getCourseList();
-                    for (int k = 0; k < Object.skills.Count; k++)
+                    for (int k = 0; k < reqClasses.skills.Count; k++)
                     {
-                        if (Object.skills[k].Contains(temp[j].getCourseNum()))  //if each name in the writing arraylist(string) contains this requirement,
+                        if (reqClasses.skills[k].Contains(temp[j].getCourseNum()))  //if each name in the writing arraylist(string) contains this requirement,
                         {
                             if (semest[i].getInProg())
                             {
