@@ -25,8 +25,13 @@ namespace WindowsFormsApplication1{
         public String studentDataFile = "";
         public String reqCourseFile = "";
         public String folder = "";
+        RequiredClasses obj = null;
         public String getStudFile (){
             return studentDataFile;
+        }
+        public RequiredClasses getReqClassesObj()
+        {
+            return obj;
         }
         public string getCourseFile() {
             return reqCourseFile;
@@ -163,7 +168,7 @@ namespace WindowsFormsApplication1{
                 System.Windows.Forms.MessageBox.Show("Files are not properly formatted. Simple text files (.txt) are accepted.");
                 return;
             }
-            RequiredClasses obj = new RequiredClasses(this.textBox2.Text, this.textBox1.Text);
+            obj = new RequiredClasses(this.textBox2.Text, this.textBox1.Text);
             MainClass.startFull(obj, folder);
             // full clearence file generation
         }

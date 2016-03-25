@@ -21,6 +21,12 @@ namespace LibraryProject
         static List<Student> Cleared = new List<Student>();
         static List<Student> New = new List<Student>();
         static List<Student> Pending = new List<Student>();
+        public static List<double> creditConfigData = new List<double>();
+
+        public static void setCreditConfigArray(RequiredClasses rq)
+        {
+            creditConfigData = rq.getCreditConfigData();
+        }
         public static List<Student> getCleared()
         {
             return Cleared;
@@ -38,7 +44,6 @@ namespace LibraryProject
         {
 
             private static int n = 4;
-            
             public static void setTotalCredComplete(List<Student> stud, RequiredClasses rc)
             {
                 for (int i = 0; i < stud.Count; i++)
@@ -115,6 +120,7 @@ namespace LibraryProject
                 }
             }
 
+            
             public static void createSemester(string[] text, Student stud, int i)//method that sets the list of semesters into the students
             {
                 List<Semester> semesterList = new List<Semester>();
@@ -547,7 +553,7 @@ namespace LibraryProject
         public static void adjusttrack(List<Student> studs) {
             foreach (Student student in studs)
             {
-                if (!(student.getCredsInProgress() + student.getGradedCreds() >= 67))
+                if (!(student.getCredsInProgress() + student.getGradedCreds() >= creditConfigData[1]))//graded credit req
                 {
                     student.setTrack();
                 }
@@ -555,19 +561,19 @@ namespace LibraryProject
                 {
                     student.setTrack();
                 }
-                if (student.getGPA() < 1.67)
+                if (student.getGPA() < creditConfigData[3])//gpa requirement
                 {
                     student.setTrack();
                 }
                 int count2 = 0;
                 if (student.getPartTime() == true)
                 {
-                    if (student.getEnrollUnits() >= 5.9)
+                    if (student.getEnrollUnits() >= creditConfigData[7])//transfer eu
                     {
                         count2++;
                     }
                 }
-                else if (student.getEnrollUnits() >= 6.0)
+                else if (student.getEnrollUnits() >= creditConfigData[6])//reg eu
                 {
                     count2++;
                 }
@@ -575,7 +581,7 @@ namespace LibraryProject
                 {
                     student.setTrack();
                 }
-                if (student.getTotCred() + student.getCredsInProgress() < 84)
+                if (student.getTotCred() + student.getCredsInProgress() < creditConfigData[0])//indicates total credits
                 {
                     student.setTrack();
                 }
