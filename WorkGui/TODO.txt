@@ -1,10 +1,17 @@
---Go through code and make all values (total/graded credits, transfer 
+** = done
+-- = todo
+
+**Go through code and make all values (total/graded credits, transfer 
   graded creds, gpa, skill reqs, writing, full time enrollment, transfer
   enrollment) implicit so user can modify config file ("Courses.txt") and
   change various credits and attributes given a change in the law school
   in the future.
 
+--make boolean for parsing the start of the required course in courses.txt
+
 --Implement writing requirement same as skill requirement in case of future
   change by the ABA.
+
+--figure out why transfer student graded creds aren't used??
 
 --Error check updated code

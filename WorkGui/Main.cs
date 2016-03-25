@@ -97,6 +97,7 @@ namespace LibraryProject
         public static void startFull(RequiredClasses requiredCourses, String folder)
         {
             requiredCourses.splitRequiredClasses();
+            FullClearance.setCreditConfigArray(requiredCourses);
             string[] lines = System.IO.File.ReadAllLines(@requiredCourses.getStudentPath()); //use studentPathway
             ArrayList newDoc = LineSplit.splitLine(lines);
             string[] oneColumn = (string[])newDoc.ToArray(typeof(string));
@@ -104,6 +105,7 @@ namespace LibraryProject
             modifyEU(studentList); //fixes the in progress semester case
 
             ParseData.partTime(studentList);
+
             ParseData.setTotalCredComplete(studentList, requiredCourses);
             foreach (Course course in requiredCourses.blank)
             {

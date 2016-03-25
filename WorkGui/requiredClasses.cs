@@ -36,6 +36,11 @@ namespace LibraryProject
         public  string[] lines;                              //arraylist for student list to parse through
         public  int num;                                     //number of required courses
 
+        public List<double> getCreditConfigData()
+        {
+            return creditConfigData;
+        }
+
         public  string getCoursepath()          //getter for course path
         {
             return coursepath;
@@ -59,8 +64,18 @@ namespace LibraryProject
 
         public  void splitRequiredClasses()         //splits the text file into required, writing, and 
         {
-            parseCreditConfigData();
-            int x = splitCourseList(1, required);   //parses course list into the proper array, returns the index where required classes stop
+            int lineNum = 0;
+            lineNum = parseCreditConfigData();
+            int startLine = 1;
+            for (int i = 0; i < courseList.Length; i++)
+            {
+                if (courseList[i].Contains("TOTAL CREDITS"))
+                {
+                    startLine = i;
+                    break;
+                }
+            }
+            int x = splitCourseList(lineNum, required);   //parses course list into the proper array, returns the index where required classes stop
             int y = splitCourseList(x, writing);    //parses course list into the proper array, returns idx where writing stops
             int z = splitCourseList(y, skills);     //parses course list into the proper array, returns idx where skills stop
             int last = splitCourseList(z, nonLetterGraded); //parses course list into the proper array, returns idx where nonlettergraded stops
@@ -98,9 +113,9 @@ namespace LibraryProject
             }
         }
 
-        public List<double> parseCreditConfigData()
+        public int parseCreditConfigData()
         {
-            
+            int lineNum = 0;
             for (int i = 0; i < courseList.Count(); i++)
             {
                 while ((courseList[i].Count() != 0))//equal to zero would indicate line in the course file is empty
@@ -117,14 +132,15 @@ namespace LibraryProject
                         {
                             if (courseList[j].Contains("---"))
                             {
-                                return creditConfigData;
+                                lineNum = j;
+                                return lineNum+2;//seems to work, a bit weird tho
                             }
                         }
                     }
                     i++;
                 }
             }
-            return creditConfigData;
+            return lineNum;
         }
 
         public  void setActual()                        
@@ -311,7 +327,7 @@ namespace LibraryProject
             }
             //Object.setCreditConfigData(Object.parseCreditConfigData());
             if (completedSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("SATISFIED"); }   //change to implicit credit count
-            else if (completedSkills + inprogSkills >= 6) { student.setSkillSat("ON TRACK"); }
+            else if (completedSkills + inprogSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("ON TRACK"); }
         }
     }
 }
