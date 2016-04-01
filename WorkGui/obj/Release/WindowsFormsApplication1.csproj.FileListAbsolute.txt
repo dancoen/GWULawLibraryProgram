@@ -1,9 +1,0 @@
-D:\GitHub\GWULawLibraryProgram\WorkGui\bin\Release\WindowsFormsApplication1.exe.config
-D:\GitHub\GWULawLibraryProgram\WorkGui\bin\Release\WindowsFormsApplication1.exe
-D:\GitHub\GWULawLibraryProgram\WorkGui\bin\Release\WindowsFormsApplication1.pdb
-D:\GitHub\GWULawLibraryProgram\WorkGui\bin\Release\EPPlus.dll
-D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Release\WindowsFormsApplication1.Form1.resources
-D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Release\WindowsFormsApplication1.Properties.Resources.resources
-D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Release\WindowsFormsApplication1.csproj.GenerateResource.Cache
-D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Release\WindowsFormsApplication1.exe
-D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Release\WindowsFormsApplication1.pdb
