@@ -19,6 +19,7 @@ namespace LibraryProject
             this.courseList = System.IO.File.ReadAllLines(@coursepath);
             this.lines = System.IO.File.ReadAllLines(@studentpath);
             parseCreditConfigData();
+            //this.setCreditConfigData(parseCreditConfigData());
         }
 
         public  string coursepath;
@@ -109,6 +110,7 @@ namespace LibraryProject
             }                            // is essentially in place in case ABA changes writing requirement like they have for skills
             else
             {
+                Console.WriteLine("number is " + Double.Parse(creditValue));
                 creditConfigData.Add(Double.Parse(creditValue));//parses the string to the double value and adds it to the global list
             }
         }
@@ -327,6 +329,8 @@ namespace LibraryProject
             }
             //Object.setCreditConfigData(Object.parseCreditConfigData());
             if (completedSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("SATISFIED"); }   //change to implicit credit count
+            else if (completedSkills + inprogSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("ON TRACK"); }
+            else if (completedSkills + inprogSkills >= 6) { student.setSkillSat("ON TRACK"); }
             else if (completedSkills + inprogSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("ON TRACK"); }
         }
     }
