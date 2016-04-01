@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1.csproj", "{3285B03E-12CA-4D0D-9D89-0E4D1DC3F22E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GWULawClearance", "GWULawClearance.csproj", "{3285B03E-12CA-4D0D-9D89-0E4D1DC3F22E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
