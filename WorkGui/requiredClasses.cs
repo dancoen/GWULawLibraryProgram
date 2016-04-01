@@ -19,7 +19,11 @@ namespace LibraryProject
             this.courseList = System.IO.File.ReadAllLines(@coursepath);
             this.lines = System.IO.File.ReadAllLines(@studentpath);
             parseCreditConfigData();
+<<<<<<< HEAD
             this.setCreditConfigData(parseCreditConfigData());
+=======
+            //this.setCreditConfigData(parseCreditConfigData());
+>>>>>>> JawnTrawnPhase1RemixPartTwoSuperSlam
         }
 
         public  string coursepath;
@@ -336,10 +340,15 @@ namespace LibraryProject
 <<<<<<< HEAD
 <<<<<<< HEAD
             else if (completedSkills + inprogSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("ON TRACK"); }
+<<<<<<< HEAD
 =======
             else if (completedSkills + inprogSkills >= 6) { student.setSkillSat("ON TRACK"); }
 >>>>>>> JawnTrawnPhase1RemixPartTwoSuperSlam
 =======
+            else if (completedSkills + inprogSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("ON TRACK"); }
+>>>>>>> JawnTrawnPhase1RemixPartTwoSuperSlam
+=======
+            else if (completedSkills + inprogSkills >= 6) { student.setSkillSat("ON TRACK"); }
             else if (completedSkills + inprogSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("ON TRACK"); }
 >>>>>>> JawnTrawnPhase1RemixPartTwoSuperSlam
         }
