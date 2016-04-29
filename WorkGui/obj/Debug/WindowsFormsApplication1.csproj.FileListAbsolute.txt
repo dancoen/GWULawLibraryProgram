@@ -1,22 +1,8 @@
-<<<<<<< HEAD
-C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Form1.resources
-C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
-C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
-C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
-C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
-C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe
-C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.pdb
-C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\ExcelLibrary.dll
-C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
-C:\Users\Dan\Documents\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
-D:\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
-=======
-D:\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
-D:\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.exe
-D:\GitHub\GWULawLibraryProgram\WorkGui\bin\Debug\WindowsFormsApplication1.pdb
-D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Form1.resources
-D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
-D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
->>>>>>> JawnTrawnPhase1RemixPartTwoSuperSlam
-D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.exe
-D:\GitHub\GWULawLibraryProgram\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
+D:\GWULawLibraryProgram-master\GWULawLibraryProgram-master\WorkGui\bin\Debug\WindowsFormsApplication1.exe.config
+D:\GWULawLibraryProgram-master\GWULawLibraryProgram-master\WorkGui\bin\Debug\WindowsFormsApplication1.exe
+D:\GWULawLibraryProgram-master\GWULawLibraryProgram-master\WorkGui\bin\Debug\WindowsFormsApplication1.pdb
+D:\GWULawLibraryProgram-master\GWULawLibraryProgram-master\WorkGui\obj\Debug\WindowsFormsApplication1.Form1.resources
+D:\GWULawLibraryProgram-master\GWULawLibraryProgram-master\WorkGui\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\GWULawLibraryProgram-master\GWULawLibraryProgram-master\WorkGui\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+D:\GWULawLibraryProgram-master\GWULawLibraryProgram-master\WorkGui\obj\Debug\WindowsFormsApplication1.exe
+D:\GWULawLibraryProgram-master\GWULawLibraryProgram-master\WorkGui\obj\Debug\WindowsFormsApplication1.pdb

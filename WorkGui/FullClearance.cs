@@ -550,10 +550,17 @@ namespace LibraryProject
             }
             return listStudent;
         }
-        public static void adjusttrack(List<Student> studs) {
+        public static void adjusttrack(List<Student> studs, Boolean isFullClearance) {
             foreach (Student student in studs)
             {
+                if (isFullClearance) { 
+                    if (student.getCredsInProgress() != 0)
+                    {
+                        student.setTrack();
+                    }
+                }
                 if (!(student.getCredsInProgress() + student.getGradedCreds() >= creditConfigData[1]))//graded credit req
+
                 {
                     student.setTrack();
                 }
@@ -590,10 +597,11 @@ namespace LibraryProject
         public static void sortStudents(List<Student> studs, string folder)
         {
             string path = folder + "/ClearedGWIDS.txt";
-            if (!File.Exists(path)) {           
-                File.Create(path);
+            if (!File.Exists(path)) {
+                System.IO.File.Create(path).Close();           
+                //File.Create(path);
             }
-            adjusttrack(studs);
+            adjusttrack(studs, true);
             string[] ctext = System.IO.File.ReadAllLines(@path);
             foreach (Student s in studs)
             {
@@ -618,7 +626,7 @@ namespace LibraryProject
                         New.Add(s);
                         using (StreamWriter text = File.AppendText(path))
                         {
-                            text.WriteLine("/n + " + s.getGWid());
+                            text.WriteLine(s.getGWid());
                         }
                     }
                 }
@@ -656,7 +664,7 @@ namespace LibraryProject
                 }
             }
             System.Diagnostics.Process.Start(@newlycl);
-            string pending = Directory.GetCurrentDirectory() + "/PENDING.txt";
+            string pending = path + "/PENDING.txt";
             using (System.IO.StreamWriter file = new System.IO.StreamWriter(pending, false))
             {
                 foreach (Student s in Pending)

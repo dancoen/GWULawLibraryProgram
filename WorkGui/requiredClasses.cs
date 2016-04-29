@@ -19,11 +19,8 @@ namespace LibraryProject
             this.courseList = System.IO.File.ReadAllLines(@coursepath);
             this.lines = System.IO.File.ReadAllLines(@studentpath);
             parseCreditConfigData();
-<<<<<<< HEAD
-            this.setCreditConfigData(parseCreditConfigData());
-=======
             //this.setCreditConfigData(parseCreditConfigData());
->>>>>>> JawnTrawnPhase1RemixPartTwoSuperSlam
+            //this.setCreditConfigData(parseCreditConfigData());
         }
 
         public  string coursepath;
@@ -106,11 +103,8 @@ namespace LibraryProject
         { 
             int firstIndex = courseList[i].IndexOf("(");//gets the first index of where the number we want occurs
             int secondIndex = courseList[i].IndexOf(")");//gets second index
-<<<<<<< HEAD
             string creditValue = courseList[i].Substring(firstIndex + 1, secondIndex - firstIndex - 1);
-=======
-            string creditValue = courseList[i].Substring(firstIndex+1, secondIndex - firstIndex -1);
->>>>>>> JawnTrawnPhase1RemixPartTwoSuperSlam
+           // string creditValue = courseList[i].Substring(firstIndex+1, secondIndex - firstIndex -1);
 
             if (creditValue.Equals("#.#"))
             {
@@ -337,20 +331,7 @@ namespace LibraryProject
             }
             //Object.setCreditConfigData(Object.parseCreditConfigData());
             if (completedSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("SATISFIED"); }   //change to implicit credit count
-<<<<<<< HEAD
-<<<<<<< HEAD
             else if (completedSkills + inprogSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("ON TRACK"); }
-<<<<<<< HEAD
-=======
-            else if (completedSkills + inprogSkills >= 6) { student.setSkillSat("ON TRACK"); }
->>>>>>> JawnTrawnPhase1RemixPartTwoSuperSlam
-=======
-            else if (completedSkills + inprogSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("ON TRACK"); }
->>>>>>> JawnTrawnPhase1RemixPartTwoSuperSlam
-=======
-            else if (completedSkills + inprogSkills >= 6) { student.setSkillSat("ON TRACK"); }
-            else if (completedSkills + inprogSkills >= reqClasses.creditConfigData[4]) { student.setSkillSat("ON TRACK"); }
->>>>>>> JawnTrawnPhase1RemixPartTwoSuperSlam
         }
     }
 }
