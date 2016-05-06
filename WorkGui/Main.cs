@@ -16,7 +16,7 @@ namespace LibraryProject
     {
         public static RequiredClasses Obj;
 
-        public static string folder;
+        //public static string folder;
 
         public  static RequiredClasses getObj()
         {
@@ -113,6 +113,7 @@ namespace LibraryProject
             }
             foreach (Student student in studentList)
             {
+                Console.WriteLine(student.getGWid() + " : " + student.getGPA() + " " + student.getEnrollUnits());
                 requiredCourseMethods.checkRequiredCourses(student, requiredCourses);
                 requiredCourseMethods.checkSkills(student, requiredCourses);
                 requiredCourseMethods.checkWriting(student, requiredCourses);

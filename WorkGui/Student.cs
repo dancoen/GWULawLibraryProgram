@@ -56,6 +56,10 @@ namespace classesForLibraryExcel
                 public void setPartTime(bool x) { allPartTime = x; }
                 public bool getPartTime() { return allPartTime; }
 
+        private bool requiredCourseComplete = true; //true if student is part time all semesters, false otherwise
+                public void setRequiredCoursesComplete(bool x) { requiredCourseComplete = x; }
+                public bool getRequiredCoursesComplete() { return requiredCourseComplete; }
+
         private bool nonLawCourses = false;
                 public bool getnonLawBool() { return nonLawCourses; }
                 public void setnonLawBool(bool x) { nonLawCourses = x; }

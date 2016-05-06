@@ -69,15 +69,15 @@ namespace WindowsFormsApplication1{
 
         private void button2_Click(object sender, EventArgs e)
         {
-            int size = -1;
+            //int size = -1;
             DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
             {
                 studentDataFile = openFileDialog1.FileName;
                 this.textBox1.Text = studentDataFile;
             }
-            Console.WriteLine(size); // <-- Shows file size in debugging mode.
-            Console.WriteLine(result); // <-- For debugging use.
+            //Console.WriteLine(size); // <-- Shows file size in debugging mode.
+            //Console.WriteLine(result); // <-- For debugging use.
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -97,15 +97,15 @@ namespace WindowsFormsApplication1{
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int size = -1;
+            //int size = -1;
             DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
             {
                 reqCourseFile = openFileDialog1.FileName;
                 this.textBox2.Text = reqCourseFile;
             }
-            Console.WriteLine(size); // <-- Shows file size in debugging mode.
-            Console.WriteLine(result); // <-- For debugging use.
+            //Console.WriteLine(size); // <-- Shows file size in debugging mode.
+            //Console.WriteLine(result); // <-- For debugging use.
         }
         
         private void label3_Click(object sender, EventArgs e)
@@ -125,15 +125,15 @@ namespace WindowsFormsApplication1{
 
         private void button4_Click(object sender, EventArgs e)
         {
-            int size = -1;
+            //int size = -1;
             DialogResult result = folderBrowserDialog1.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
             {
                 folder = folderBrowserDialog1.SelectedPath;
                 this.textBox3.Text = folder;
             }
-            Console.WriteLine(size); // <-- Shows file size in debugging mode.
-            Console.WriteLine(result); // <-- For debugging use.
+            //Console.WriteLine(size); // <-- Shows file size in debugging mode.
+            //Console.WriteLine(result); // <-- For debugging use.
         }
 
         private void folderBrowserDialog1_HelpRequest(object sender, EventArgs e)

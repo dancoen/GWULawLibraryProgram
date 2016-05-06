@@ -6,3 +6,4 @@ D:\GWULawLibraryProgram-master\GWULawLibraryProgram-master\WorkGui\obj\Debug\Win
 D:\GWULawLibraryProgram-master\GWULawLibraryProgram-master\WorkGui\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
 D:\GWULawLibraryProgram-master\GWULawLibraryProgram-master\WorkGui\obj\Debug\WindowsFormsApplication1.exe
 D:\GWULawLibraryProgram-master\GWULawLibraryProgram-master\WorkGui\obj\Debug\WindowsFormsApplication1.pdb
+D:\GWULawLibraryProgram-master\GWULawLibraryProgram-master\WorkGui\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache

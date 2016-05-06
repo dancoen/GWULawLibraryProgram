@@ -22,7 +22,6 @@ namespace LibraryProject
             //this.setCreditConfigData(parseCreditConfigData());
             //this.setCreditConfigData(parseCreditConfigData());
         }
-
         public  string coursepath;
         public  string studentpath; 
         public  string[] courseList;  
@@ -77,6 +76,7 @@ namespace LibraryProject
                     break;
                 }
             }
+            //Console.WriteLine(lineNum);
             int x = splitCourseList(lineNum, required);   //parses course list into the proper array, returns the index where required classes stop
             int y = splitCourseList(x, writing);    //parses course list into the proper array, returns idx where writing stops
             int z = splitCourseList(y, skills);     //parses course list into the proper array, returns idx where skills stop
@@ -112,7 +112,7 @@ namespace LibraryProject
             }                            // is essentially in place in case ABA changes writing requirement like they have for skills
             else
             {
-                Console.WriteLine("number is " + Double.Parse(creditValue));
+                //Console.WriteLine("number is " + Double.Parse(creditValue));
                 creditConfigData.Add(Double.Parse(creditValue));//parses the string to the double value and adds it to the global list
             }
         }
@@ -136,8 +136,15 @@ namespace LibraryProject
                         {
                             if (courseList[j].Contains("---"))
                             {
-                                lineNum = j;
-                                return lineNum+2;//seems to work, a bit weird tho
+                                for (; j < courseList.Count(); j++)
+                                {
+                                    if (courseList[j].Contains("REQUIRED"))
+                                    {
+                                        lineNum = j;
+                                        return lineNum + 1;//seems to work, a bit weird tho
+
+                                    }
+                                }
                             }
                         }
                     }
@@ -161,7 +168,7 @@ namespace LibraryProject
         }
         public  int splitCourseList(int j, List<string> list) //goes through text file of Courses to separate the different categories - works as long as they are in the same order as original
         {
-            for (int i = j; i < courseList.Count(); i++)
+            for (int i = j; i < courseList.Count(); i++)//TODO : FIX THIS PARSING METHOD
             {
                while ((courseList[i].Count() != 0))
                 {
@@ -185,6 +192,7 @@ namespace LibraryProject
         public static Course[] checkRequiredCourses(Student student, RequiredClasses Object) //This method sets each student's required courses with the correct information
                                                                                              //always use the same requiredClasses object when calling these methods
         {
+            bool requiredCoursesComplete = true;//TODO
             Course[] actualcopy = new Course[Object.actual.Length]; //copy of Actual
             
             for (int i = 0; i < actualcopy.Length; i++)             //make sure each Course object in actual is copied into actualcopy
@@ -218,6 +226,7 @@ namespace LibraryProject
                             if ((temp[j].getGrade().Contains("Progress"))) {    //modify Status and Track accordingly: means this course is in progress
                                 actualcopy[k].setStatus("ON TRACK");
                                 actualcopy[k].setTrack("IN PROGRESS");
+                                requiredCoursesComplete = false;
                             }
                             break;
                         }
