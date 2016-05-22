@@ -78,10 +78,10 @@ namespace LibraryProject
             modifyEU(studentList); //fixes the in progress semester case
             ParseData.partTime(studentList);
             ParseData.setTotalCredComplete(studentList, requiredCourses);
-            foreach (Course course in requiredCourses.blank)
-            {
-                Console.WriteLine(course.getCourseName());
-            }
+            //foreach (Course course in requiredCourses.blank)
+            // {
+            //    Console.WriteLine(course.getCourseName());
+            //}
             foreach (Student student in studentList)
             {
                 requiredCourseMethods.checkRequiredCourses(student, requiredCourses);
@@ -107,13 +107,13 @@ namespace LibraryProject
             ParseData.partTime(studentList);
 
             ParseData.setTotalCredComplete(studentList, requiredCourses);
-            foreach (Course course in requiredCourses.blank)
-            {
-                Console.WriteLine(course.getCourseName());
-            }
+            //foreach (Course course in requiredCourses.blank)
+            //{
+            //    Console.WriteLine(course.getCourseName());
+            //}
             foreach (Student student in studentList)
             {
-                Console.WriteLine(student.getGWid() + " : " + student.getGPA() + " " + student.getEnrollUnits());
+              //  Console.WriteLine(student.getGWid() + " : " + student.getGPA() + " " + student.getEnrollUnits());
                 requiredCourseMethods.checkRequiredCourses(student, requiredCourses);
                 requiredCourseMethods.checkSkills(student, requiredCourses);
                 requiredCourseMethods.checkWriting(student, requiredCourses);
